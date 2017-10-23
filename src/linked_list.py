@@ -17,9 +17,11 @@ class Node(object):
 class LinkedList(object):
     """."""
 
+    node_list = []
+
     def push(self, val):
         """."""
-        pass
+        self.node_list.insert(0, Node(val))
 
     def pop(self):
         """."""
