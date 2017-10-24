@@ -2,11 +2,10 @@
 
 
 class Node(object):
-    """."""
 
-    def __init__(self, val=None, next=None):
-        """."""
-        self.val = val
+    def __init__(self, data=None, next=None):
+        """Constructor for the Node object."""
+        self.data = data
         self.next = next
 
     def __str__(self):
@@ -15,49 +14,43 @@ class Node(object):
 
 
 class LinkedList(object):
-    """."""
 
-    def __init__(self, optional=None, head=None):
-        self.optional = optional
-        self.head = head
-
-        if self.optional is not None:
-            return "{}".format(self.optional)
+    def __init__(self, iterable=()):
+        """Constructor for the Linked List object."""
+        self.head = None
+        self._counter = 0
+        if isinstance(iterable, (str, tuple, list)):
+            for item in iterable:
+                self.push(item)
 
     node_list = []
 
     def push(self, val):
-        """."""
-        new_node = Node(val)
-        new_node.next = self.head
-        self.head = new_node
+        """Add a new value to the head of the Linked List."""
+        new_head = Node(val, self.head)
+        self.head = new_head
+        self._counter += 1
 
     def pop(self):
-        """."""
-        node = self.head
-        if node:
-            self.head = self.head.next
-            print('yes')
-        if node is None:
-            raise IndexError("Nothing to remove from list.")
+        """Removes and return the value if the head of the Linked List."""
+        if not self.head:
+            raise IndexError("Empty list, unable to pop")
+        output = self.head.data
+        self.head = self.head.next
+        self._counter -= 1
+        return output
 
     def size(self):
-        """."""
-        count = 0
-        node = self.head
-        while node:
-            count += 1
-            node = node.next
-        return count
+        """Return size of our list."""
+        return self._counter
 
     def search(self, val):
         """."""
-        node = self.head
-        while node:
-            if node.val == val:
-                return node.val
-            else:
-                node = node.next
+        curr = self.head
+        while curr:
+            if curr.data == val:
+                return curr
+            curr = curr.next    
 
     def remove(self, node):
         """."""
@@ -79,7 +72,7 @@ class LinkedList(object):
 
     def __len__(self):
         """."""
-        return self.length
+        return self._counter
 
     def __print__(self):
         """."""
