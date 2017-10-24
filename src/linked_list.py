@@ -10,7 +10,7 @@ class Node(object):
 
     def __str__(self):
         """."""
-        return "Node {}".format(self.val)
+        return "Node {}".format(self.data)
 
 
 class LinkedList(object):
@@ -43,36 +43,48 @@ class LinkedList(object):
         return self._counter
 
     def search(self, val):
-        """."""
-        curr = self.head
-        while curr:
-            if curr.data == val:
-                return curr
-            curr = curr.next    
-
-    def remove(self, node):
-        """."""
-        current = self.head
-        while current:
-            print(current.val, node)
-            if current.val == node:
-                print('right here')
-                self.remove(node)
+        """searches linked list for requested node."""
+        search_through = self.head
+        while search_through:
+            if val == search_through.cargo:
+                return search_through
             else:
-                current = current.next
+                search_through = search_through.next
+        return search_through
+
+    def remove(self, val):
+        """Removes selected node."""
+        current_node = self.head
+        previous_node = None
+        found = False
+        if current_node is None:
+            return ValueError("No such item.")
+        while current_node and found is False:
+            if val == current_node.data:
+                found = True
+            else:
+                previous_node = current_node
+                current_node = current_node.next
+        if previous_node is None:
+            self.pop()
+        elif current_node.next is None:
+            previous_node.next = None
+        else:
+            previous_node.next = current_node.next
 
     def display(self):
-        """."""
+        """Displays nodes in linked list."""
         node = self.head
+        display_this = []
         while node:
-            print('node: {}'.format(node.val))
+            display_this.append(node.data)
             node = node.next
+        return str(display_this).replace("[", "(").replace("]", ")")
 
     def __len__(self):
-        """."""
-        return self._counter
+        """return length of linked list."""
+        return self.size()
 
-    def __print__(self):
-        """."""
-        pass
-
+    def __str__(self):
+        """displays the linked list."""
+        return self.display()
