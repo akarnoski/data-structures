@@ -17,6 +17,8 @@ class Node(object):
 class LinkedList(object):
     """."""
 
+    popped = LinkedList.node_list.pop()
+
     node_list = []
 
     def push(self, val):
@@ -25,7 +27,7 @@ class LinkedList(object):
 
     def pop(self):
         """."""
-        pass
+        self.pop()
 
     def size(self):
         """."""
