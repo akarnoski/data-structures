@@ -17,7 +17,7 @@ class Node(object):
 class LinkedList(object):
     """."""
 
-    popped = LinkedList.node_list.pop()
+    popped = 0
 
     node_list = []
 
@@ -27,15 +27,18 @@ class LinkedList(object):
 
     def pop(self):
         """."""
-        self.pop()
+        self.popped = self.node_list.pop(0)
+        print(self.popped)
 
     def size(self):
         """."""
-        pass
+        return len(self.node_list)
 
     def search(self, val):
         """."""
-        pass
+        for i in range(len(self.node_list)):
+            if val == self.node_list[i].val:
+                print(self.node_list[i])
 
     def remove(self, node):
         """."""
@@ -47,7 +50,7 @@ class LinkedList(object):
 
     def __len__(self):
         """."""
-        pass
+        return len(self.node_list)
 
     def __print__(self):
         """."""
