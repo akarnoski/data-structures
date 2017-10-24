@@ -1,7 +1,8 @@
-"""."""
+"""Create a new Node object and attach it a Linked List."""
 
 
 class Node(object):
+    """Build a node object."""
 
     def __init__(self, data=None, next=None):
         """Constructor for the Node object."""
@@ -14,6 +15,7 @@ class Node(object):
 
 
 class LinkedList(object):
+    """Build linked list."""
 
     def __init__(self, iterable=()):
         """Constructor for the Linked List object."""
@@ -30,7 +32,7 @@ class LinkedList(object):
         self._counter += 1
 
     def pop(self):
-        """Removes and return the value if the head of the Linked List."""
+        """Remove and return the value if the head of the Linked List."""
         if not self.head:
             raise IndexError("Empty list, unable to pop")
         output = self.head.data
@@ -43,7 +45,7 @@ class LinkedList(object):
         return self._counter
 
     def search(self, val):
-        """searches linked list for requested node."""
+        """Search linked list for requested node."""
         search_through = self.head
         while search_through:
             if val == search_through.cargo:
@@ -53,7 +55,7 @@ class LinkedList(object):
         return search_through
 
     def remove(self, val):
-        """Removes selected node."""
+        """Remove selected node."""
         current_node = self.head
         previous_node = None
         found = False
@@ -73,7 +75,7 @@ class LinkedList(object):
             previous_node.next = current_node.next
 
     def display(self):
-        """Displays nodes in linked list."""
+        """Display nodes in linked list."""
         node = self.head
         display_this = []
         while node:
@@ -82,9 +84,9 @@ class LinkedList(object):
         return str(display_this).replace("[", "(").replace("]", ")")
 
     def __len__(self):
-        """return length of linked list."""
+        """Return length of linked list."""
         return self.size()
 
     def __str__(self):
-        """displays the linked list."""
+        """Display the linked list."""
         return self.display()
