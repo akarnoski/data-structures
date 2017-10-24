@@ -23,8 +23,6 @@ class LinkedList(object):
             for item in iterable:
                 self.push(item)
 
-    node_list = []
-
     def push(self, val):
         """Add a new value to the head of the Linked List."""
         new_head = Node(val, self.head)
@@ -78,9 +76,3 @@ class LinkedList(object):
         """."""
         pass
 
-
-
-
-l = LinkedList()
-for i in range(10):
-    l.push(i)
