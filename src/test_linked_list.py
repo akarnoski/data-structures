@@ -4,7 +4,6 @@ import pytest
 
 def test_node_has_attributes():
     """test that the node has attributes."""
->>>>>>> d6fc48c370b9f185b770f2e099e9299e52cdf0ad
     from linked_list import Node
     n = Node(1, None)
     assert n.data
