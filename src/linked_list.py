@@ -48,7 +48,7 @@ class LinkedList(object):
         """Search linked list for requested node."""
         search_through = self.head
         while search_through:
-            if val == search_through.cargo:
+            if val == search_through.data:
                 return search_through
             else:
                 search_through = search_through.next
