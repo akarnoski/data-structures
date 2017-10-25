@@ -16,3 +16,7 @@ class Stack(object):
     def pop(self):
         """."""
         return self.linked_list.pop()
+
+    def __len__(self):
+        """."""
+        return self.linked_list.size()
