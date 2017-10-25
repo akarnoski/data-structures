@@ -6,6 +6,7 @@ import pytest
 def list_fixture():
     from linked_list import LinkedList
     l = LinkedList()
+    return l
 
 
 @pytest.fixture
