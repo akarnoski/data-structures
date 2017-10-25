@@ -48,7 +48,7 @@ class LinkedList(object):
         while curr:
             if curr.data == val:
                 return curr
-            curr = curr.next    
+            curr = curr.next
 
     def remove(self, node):
         """."""
@@ -75,4 +75,3 @@ class LinkedList(object):
     def __print__(self):
         """."""
         pass
-
