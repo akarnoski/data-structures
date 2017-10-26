@@ -10,10 +10,6 @@ class Node(object):
         self.next_node = next_node
         self.previous_node = previous_node
 
-    def __str__(self):
-        """."""
-        return "Node {}".format(self.data)
-
 
 class DoublyLinkedList(object):
     """Create a Doubly Linked List."""
