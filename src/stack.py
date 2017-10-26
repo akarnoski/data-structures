@@ -15,7 +15,10 @@ class Stack(object):
 
     def pop(self):
         """Pop a thing out of the thing."""
-        return self.linked_list.pop()
+        try:
+            return self.linked_list.pop()
+        except IndexError:
+            IndexError('Cannot pop from empty stack')
 
     def __len__(self):
         """Return the list of the stack."""
