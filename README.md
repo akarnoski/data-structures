@@ -27,3 +27,20 @@ Data structure where elements are inserted into and removed from the head of the
     O(1)
 * len()
     O(1)
+
+
+## Doubly Linked List
+Consists of Nodes, each of which contains some data and pointers to the next and previous nodes
+### Time Complexity
+* push()
+    O(1)
+* append()
+    O(1)
+* pop()
+    O(1)
+* shift()
+    O(1)
+* display()
+    O(N)
+* size()
+    O(1)
