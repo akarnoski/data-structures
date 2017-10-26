@@ -9,10 +9,6 @@ class Node(object):
         self.data = data
         self.next = next
 
-    def __str__(self):
-        """."""
-        return "Node {}".format(self.data)
-
 
 class LinkedList(object):
     """Build linked list."""
@@ -54,25 +50,29 @@ class LinkedList(object):
                 search_through = search_through.next
         return search_through
 
-    def remove(self, val):
+    def remove(self, node):
         """Remove selected node."""
         current_node = self.head
         previous_node = None
         found = False
         if current_node is None:
-            return ValueError("No such item.")
-        while current_node and found is False:
-            if val == current_node.data:
-                found = True
+            raise IndexError("Nothing in the list.")
+        try:
+            while current_node or found is False:
+                if node == current_node.data:
+                    found = True
+                else:
+                    previous_node = current_node
+                    current_node = current_node.next
+            if previous_node is None:
+                self.pop()
+            elif current_node.next is None:
+                previous_node.next = None
             else:
-                previous_node = current_node
-                current_node = current_node.next
-        if previous_node is None:
-            self.pop()
-        elif current_node.next is None:
-            previous_node.next = None
-        else:
-            previous_node.next = current_node.next
+                previous_node.next = current_node.next
+        except AttributeError:
+            raise ValueError("No such node.")
+        self._counter -= 1
 
     def display(self):
         """Display nodes in linked list."""

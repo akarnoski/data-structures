@@ -10,10 +10,6 @@ class Node(object):
         self.next_node = next_node
         self.previous_node = previous_node
 
-    def __str__(self):
-        """."""
-        return "Node {}".format(self.data)
-
 
 class DoublyLinkedList(object):
     """Create a Doubly Linked List."""
@@ -46,21 +42,25 @@ class DoublyLinkedList(object):
 
     def pop(self):
         """Remove and return the value of the head."""
+        if len(self) == 0:
+            self.head = None
+            self.tail = None
         if not self.head:
             raise IndexError("Empty list, unable to pop")
         output = self.head.data
         self.head = self.head.next_node
-        self.tail.previous_node = None
         self._counter -= 1
         return output
 
     def shift(self):
         """Remove and return the value of the tail."""
+        if len(self) == 0:
+            self.head = None
+            self.tail = None
         if not self.tail:
             raise IndexError("Empty list, unable to pop")
         output = self.tail.data
         self.tail = self.tail.previous_node
-        self.tail.next_node = None
         self._counter -= 1
         return output
 
@@ -80,3 +80,7 @@ class DoublyLinkedList(object):
     def __len__(self):
         """Return length of linked list."""
         return self.size()
+
+    def __str__(self):
+        """Allowed the DLL to use the Python print function to display list."""
+        return self.display()
