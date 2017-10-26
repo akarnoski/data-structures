@@ -10,71 +10,71 @@ def test_node_has_attributes():
     assert n.next is None
 
 
-@pytest.fixture
-def test_linked_list_has_head(list_fixture):
-    """Test if the linked list has head node."""
-    assert list_fixture.head is None
+# @pytest.fixture
+# def test_linked_list_has_head(list_fixture):
+#     """Test if the linked list has head node."""
+#     assert list_fixture.head is None
 
 
-@pytest.fixture
-def test_linked_list_push_adds_new_item(list_fixture):
-    """Test that if new node is added."""
-    list_fixture.push('val')
-    assert list_fixture.head.data == 'val'
+# @pytest.fixture
+# def test_linked_list_push_adds_new_item(list_fixture):
+#     """Test that if new node is added."""
+#     list_fixture.push('val')
+#     assert list_fixture.head.data == 'val'
 
 
-@pytest.fixture
-def test_linked_list_push_two_last_value_is_head(list_fixture):
-    """Test that two nodes are added."""
-    list_fixture.push('val')
-    list_fixture.push('val2')
-    assert list_fixture.head.data == 'val2'
+# @pytest.fixture
+# def test_linked_list_push_two_last_value_is_head(list_fixture):
+#     """Test that two nodes are added."""
+#     list_fixture.push('val')
+#     list_fixture.push('val2')
+#     assert list_fixture.head.data == 'val2'
 
 
-@pytest.fixture
-def test_linked_list_moves_old_head_to_next(list_fixture):
-    """Test that the new node is moved to head."""
-    list_fixture.push('val')
-    list_fixture.push('val2')
-    assert list_fixture.head.next.data == 'val'
+# @pytest.fixture
+# def test_linked_list_moves_old_head_to_next(list_fixture):
+#     """Test that the new node is moved to head."""
+#     list_fixture.push('val')
+#     list_fixture.push('val2')
+#     assert list_fixture.head.next.data == 'val'
 
 
-@pytest.fixture
-def test_linked_list_pop_removes_head_returns_value(list_fixture):
-    """Test pop removes head."""
-    list_fixture.push('potato')
-    list_fixture.pop()
-    assert list_fixture.head is None
+# @pytest.fixture
+# def test_linked_list_pop_removes_head_returns_value(list_fixture):
+#     """Test pop removes head."""
+#     list_fixture.push('potato')
+#     list_fixture.pop()
+#     assert list_fixture.head is None
 
 
-@pytest.fixture
-def test_linked_list_pop_returns_head_value(list_fixture):
-    """Test pop returns value."""
-    list_fixture.push('potato')
-    output = list_fixture.pop()
-    assert output == 'potato'
+# @pytest.fixture
+# def test_linked_list_pop_returns_head_value(list_fixture):
+#     """Test pop returns value."""
+#     list_fixture.push('potato')
+#     output = list_fixture.pop()
+#     assert output == 'potato'
 
 
-@pytest.fixture
-def test_linked_list_pop_shifts_head_properly(list_fixture):
-    """Test pop shifts head."""
-    list_fixture.push('potato')
-    list_fixture.push('cabbage')
-    list_fixture.pop()
-    assert list_fixture.head.data == 'potato'
+# @pytest.fixture
+# def test_linked_list_pop_shifts_head_properly(list_fixture):
+#     """Test pop shifts head."""
+#     list_fixture.push('potato')
+#     list_fixture.push('cabbage')
+#     list_fixture.pop()
+#     assert list_fixture.head.data == 'potato'
 
 
-@pytest.fixture
-def test_linked_list_pop_empty_raises_exception(list_fixture):
-    """Test pop on empty linked list raises exception."""
-    with pytest.raises(IndexError):
-        list_fixture.pop()
+# @pytest.fixture
+# def test_linked_list_pop_empty_raises_exception(list_fixture):
+#     """Test pop on empty linked list raises exception."""
+#     with pytest.raises(IndexError):
+#         list_fixture.pop()
 
 
-@pytest.fixture
-def test_size_method_returns_list_length(list_fixture):
-    """Test size method on linked list."""
-    assert list_fixture.size() == 0
+# @pytest.fixture
+# def test_size_method_returns_list_length(list_fixture):
+#     """Test size method on linked list."""
+#     assert list_fixture.size() == 0
 
 
 @pytest.mark.parametrize('n', range(100))
@@ -85,11 +85,11 @@ def test_size_method_returns_list_length2(n, list_fixture):
     assert list_fixture.size() == n
 
 
-@pytest.fixture
-def test_linked_list_search_one_node_returns_none(list_fixture):
-    """Test search returns none."""
-    list_fixture.push(1)
-    assert list_fixture.search(0) is None
+# @pytest.fixture
+# def test_linked_list_search_one_node_returns_none(list_fixture):
+#     """Test search returns none."""
+#     list_fixture.push(1)
+#     assert list_fixture.search(0) is None
 
 
 @pytest.mark.parametrize('n', range(1, 10))
