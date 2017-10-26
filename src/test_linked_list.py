@@ -20,16 +20,14 @@ def test_linked_list_has_head(list_fixture):
 def test_linked_list_push_adds_new_item(list_fixture):
     """test that if new node is added."""
     list_fixture.push('val')
-    assert list
-    _fixture.head.data == 'val'
+    assert list_fixture.head.data == 'val'
 
 
 @pytest.fixture
 def test_linked_list_push_two_last_value_is_head(list_fixture):
     """test that two nodes are added."""
     list_fixture.push('val')
-    list_fixtur
-    e.push('val2')
+    list_fixture.push('val2')
     assert list_fixture.head.data == 'val2'
 
 
@@ -37,8 +35,7 @@ def test_linked_list_push_two_last_value_is_head(list_fixture):
 def test_linked_list_moves_old_head_to_next(list_fixture):
     """test that the new node is moved to head."""
     list_fixture.push('val')
-    list_fixtur
-    e.push('val2')
+    list_fixture.push('val2')
     assert list_fixture.head.next.data == 'val'
 
 
@@ -46,8 +43,7 @@ def test_linked_list_moves_old_head_to_next(list_fixture):
 def test_linked_list_pop_removes_head_returns_value(list_fixture):
     """test pop removes head."""
     list_fixture.push('potato')
-    list_fixtur
-    e.pop()
+    list_fixture.pop()
     assert list_fixture.head is None
 
 
@@ -55,8 +51,7 @@ def test_linked_list_pop_removes_head_returns_value(list_fixture):
 def test_linked_list_pop_returns_head_value(list_fixture):
     """test pop returns value."""
     list_fixture.push('potato')
-    output = li
-    st_fixture.pop()
+    output = list_fixture.pop()
     assert output == 'potato'
 
 
@@ -64,23 +59,22 @@ def test_linked_list_pop_returns_head_value(list_fixture):
 def test_linked_list_pop_shifts_head_properly(list_fixture):
     """test pop shifts head."""
     list_fixture.push('potato')
-    list_fixtur
-    e.push('cabbage')
+    list_fixture.push('cabbage')
     list_fixture.pop()
     assert list_fixture.head.data == 'potato'
+
 
 @pytest.fixture
 def test_linked_list_pop_empty_raises_exception(list_fixture):
     """test pop on empty linked list raises exception."""
     with pytest.raises(IndexError):
-        list_fi
-        xture.pop()
+        list_fixture.pop()
+
 
 @pytest.fixture
 def test_size_method_returns_list_length(list_fixture):
     """test size method on linked list."""
     assert list_fixture.size() == 0
-
 
 
 @pytest.mark.parametrize('n', range(100))
@@ -90,12 +84,12 @@ def test_size_method_returns_list_length2(n, list_fixture):
         list_fixture.push(i)
     assert list_fixture.size() == n
 
+
 @pytest.fixture
 def test_linked_list_search_one_node_returns_none(list_fixture):
     """test search returns none."""
     list_fixture.push(1)
-    assert list
-    _fixture.search(0) is None
+    assert list_fixture.search(0) is None
 
 
 @pytest.mark.parametrize('n', range(1, 10))

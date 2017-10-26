@@ -38,6 +38,7 @@ class DoublyLinkedList(object):
         """Add a new value to the tail of the Doubly Linked List."""
         old_tail = self.tail
         new_tail = Node(val, self.tail)
+        old_tail.next_node = new_tail
         self.tail = new_tail
         self.tail.next_node = None
         self.tail.previous_node = old_tail
@@ -49,6 +50,7 @@ class DoublyLinkedList(object):
             raise IndexError("Empty list, unable to pop")
         output = self.head.data
         self.head = self.head.next_node
+        self.tail.previous_node = None
         self._counter -= 1
         return output
 
@@ -58,8 +60,18 @@ class DoublyLinkedList(object):
             raise IndexError("Empty list, unable to pop")
         output = self.tail.data
         self.tail = self.tail.previous_node
+        self.tail.next_node = None
         self._counter -= 1
         return output
+
+    def display(self):
+        """Display nodes in linked list."""
+        node = self.head
+        display_this = []
+        while node:
+            display_this.append(node.data)
+            node = node.next_node
+        return str(display_this).replace("[", "(").replace("]", ")")
 
     def size(self):
         """Return size of our list."""

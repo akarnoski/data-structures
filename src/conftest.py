@@ -11,5 +11,6 @@ def list_fixture():
 
 @pytest.fixture
 def dll_fixture():
-    from double_linked_list import DoubleLinkedList
-    dll = LinkedList()
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    return dll
