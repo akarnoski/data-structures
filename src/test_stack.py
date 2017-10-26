@@ -1,3 +1,4 @@
+"""Test functions for stack module."""
 import pytest
 
 
@@ -41,5 +42,3 @@ def test_size_method_returns_list_length(n):
     for i in range(n):
         s.push(i)
     assert len(s) == n
-
-

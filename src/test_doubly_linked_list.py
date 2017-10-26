@@ -1,3 +1,4 @@
+"""Test functions for the doubly_linked_list module."""
 import pytest
 
 
@@ -11,14 +12,14 @@ def test_node_has_attributes():
 
 
 def test_double_linked_list_has_head():
-    """test if the linked list has head node."""
+    """Test if the linked list has head node."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     assert dll.head is None
 
 
 def test_double_linked_list_push_adds_new_item():
-    """test that if new node is added."""
+    """Test that if new node is added."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('val')
@@ -26,7 +27,7 @@ def test_double_linked_list_push_adds_new_item():
 
 
 def test_double_linked_list_push_two_last_value_is_head():
-    """test that two nodes are added."""
+    """Test that two nodes are added."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('val')
@@ -35,7 +36,7 @@ def test_double_linked_list_push_two_last_value_is_head():
 
 
 def test_double_linked_list_moves_old_head_to_next():
-    """test that the new node is moved to head."""
+    """Test that the new node is moved to head."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('val')
@@ -44,7 +45,7 @@ def test_double_linked_list_moves_old_head_to_next():
 
 
 def test_double_linked_list_pop_removes_head_returns_value():
-    """test pop removes head."""
+    """Test pop removes head."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('potato')
@@ -53,7 +54,7 @@ def test_double_linked_list_pop_removes_head_returns_value():
 
 
 def test_double_linked_list_pop_returns_head_value():
-    """test pop returns value."""
+    """Test pop returns value."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('potato')
@@ -62,7 +63,7 @@ def test_double_linked_list_pop_returns_head_value():
 
 
 def test_double_linked_list_pop_shifts_head_properly():
-    """test pop shifts head."""
+    """Test pop shifts head."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.push('potato')
@@ -71,18 +72,16 @@ def test_double_linked_list_pop_shifts_head_properly():
     assert dll.head.data == 'potato'
 
 
-@pytest.fixture
 def test_double_linked_list_pop_empty_raises_exception():
-    """test pop on empty linked list raises exception."""
+    """Test pop on empty linked list raises exception."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     with pytest.raises(IndexError):
         dll.pop()
 
 
-@pytest.fixture
 def test_size_method_returns_list_length():
-    """test size method on linked list."""
+    """Test size method on linked list."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     assert dll.size() == 0
@@ -90,7 +89,7 @@ def test_size_method_returns_list_length():
 
 @pytest.mark.parametrize('n', range(100))
 def test_size_method_returns_list_length2(n):
-    """test size method on linked list."""
+    """Test size method on linked list."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     for i in range(n):
@@ -99,7 +98,7 @@ def test_size_method_returns_list_length2(n):
 
 
 def test_double_linked_list_append_value():
-    """test double linked list appends value to tail."""
+    """Test double linked list appends value to tail."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     for i in range(5):
@@ -110,7 +109,7 @@ def test_double_linked_list_append_value():
 
 
 def test_double_linked_list_shift_method():
-    """test double linked list removes last value."""
+    """Test double linked list removes last value."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     for i in range(5):
