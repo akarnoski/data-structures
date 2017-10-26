@@ -72,7 +72,6 @@ def test_double_linked_list_pop_shifts_head_properly():
     assert dll.head.data == 'potato'
 
 
-@pytest.fixture
 def test_double_linked_list_pop_empty_raises_exception():
     """Test pop on empty linked list raises exception."""
     from doubly_linked_list import DoublyLinkedList
@@ -81,7 +80,6 @@ def test_double_linked_list_pop_empty_raises_exception():
         dll.pop()
 
 
-@pytest.fixture
 def test_size_method_returns_list_length():
     """Test size method on linked list."""
     from doubly_linked_list import DoublyLinkedList
