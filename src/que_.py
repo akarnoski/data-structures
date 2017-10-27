@@ -8,3 +8,7 @@ class Queue(object):
     def __init__(self):
         """Initialize Queue using DoublyLinkedList methods."""
         self.doubly_linked_list = DoublyLinkedList()
+
+    def enqueue(self, val):
+        """Push a thing onto a thing."""
+        self.doubly_linked_list.push(val)
