@@ -29,3 +29,7 @@ class Queue(object):
     def size(self):
         """Get the size of the queue."""
         return self.doubly_linked_list.size()
+
+    def __len__(self):
+        """Return the length of the queue using Python len function."""
+        return self.size()

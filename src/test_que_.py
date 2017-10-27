@@ -72,3 +72,9 @@ def test_size_method_returns_list_length(queue_fixture):
     queue_fixture.enqueue(2)
     queue_fixture.enqueue(3)
     assert queue_fixture.size() == 2
+
+
+def test_python_len_function_works_with_queue(queue_fixture):
+    """Test that queue works with len function."""
+    assert len(queue_fixture) == 0
+
