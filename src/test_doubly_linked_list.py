@@ -97,3 +97,22 @@ def test_double_linked_list_shift_method():
     dll.shift()
     tail = dll.tail.data
     assert tail == 1
+
+
+def test_shift_will_not_break_if_pop_and_shift_are_used_on_same_list(dll_fixture):
+    """Test that shift won't break if it there is nothing in the list."""
+    dll_fixture.push(1)
+    dll_fixture.push(2)
+    dll_fixture.push(3)
+    dll_fixture.pop()
+    dll_fixture.pop()
+    dll_fixture.shift()
+    with pytest.raises(IndexError):
+        dll_fixture.shift()
+
+
+def test_display_returns_string_correctly(dll_fixture):
+    """Test that display function returns a string structured as a tuple."""
+    for i in range(4):
+        dll_fixture.push(i)
+    assert dll_fixture.display() == "(3, 2, 1, 0)"
