@@ -10,5 +10,12 @@ class Queue(object):
         self.doubly_linked_list = DoublyLinkedList()
 
     def enqueue(self, val):
-        """Push a thing onto a thing."""
+        """Add a node to queue."""
         self.doubly_linked_list.push(val)
+
+    def dequeue(self):
+        """Remove first node pushed in."""
+        try:
+            return self.doubly_linked_list.shift()
+        except IndexError:
+            raise IndexError('Nothing to dequeue')
