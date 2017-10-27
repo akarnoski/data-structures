@@ -11,80 +11,62 @@ def test_node_has_attributes():
     assert n.previous_node is None
 
 
-def test_double_linked_list_has_head():
+def test_double_linked_list_has_head(dll_fixture):
     """Test if the linked list has head node."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    assert dll.head is None
+    assert dll_fixture.head is None
 
 
-def test_double_linked_list_push_adds_new_item():
+def test_double_linked_list_push_adds_new_item(dll_fixture):
     """Test that if new node is added."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('val')
-    assert dll.head.data == 'val'
+    dll_fixture.push('val')
+    assert dll_fixture.head.data == 'val'
 
 
-def test_double_linked_list_push_two_last_value_is_head():
+def test_double_linked_list_push_two_last_value_is_head(dll_fixture):
     """Test that two nodes are added."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('val')
-    dll.push('val2')
-    assert dll.head.data == 'val2'
+    dll_fixture.push('val')
+    dll_fixture.push('val2')
+    assert dll_fixture.head.data == 'val2'
 
 
-def test_double_linked_list_moves_old_head_to_next():
+def test_double_linked_list_moves_old_head_to_next(dll_fixture):
     """Test that the new node is moved to head."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('val')
-    dll.push('val2')
-    assert dll.head.next_node.data == 'val'
+    dll_fixture.push('val')
+    dll_fixture.push('val2')
+    assert dll_fixture.head.next_node.data == 'val'
 
 
-def test_double_linked_list_pop_removes_head_returns_value():
+def test_double_linked_list_pop_removes_head_returns_value(dll_fixture):
     """Test pop removes head."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('potato')
-    dll.pop()
-    assert dll.head is None
+    dll_fixture.push('potato')
+    dll_fixture.pop()
+    assert dll_fixture.head is None
 
 
-def test_double_linked_list_pop_returns_head_value():
+def test_double_linked_list_pop_returns_head_value(dll_fixture):
     """Test pop returns value."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('potato')
-    output = dll.pop()
+    dll_fixture.push('potato')
+    output = dll_fixture.pop()
     assert output == 'potato'
 
 
-def test_double_linked_list_pop_shifts_head_properly():
+def test_double_linked_list_pop_shifts_head_properly(dll_fixture):
     """Test pop shifts head."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    dll.push('potato')
-    dll.push('cabbage')
-    dll.pop()
-    assert dll.head.data == 'potato'
+    dll_fixture.push('potato')
+    dll_fixture.push('cabbage')
+    dll_fixture.pop()
+    assert dll_fixture.head.data == 'potato'
 
 
-def test_double_linked_list_pop_empty_raises_exception():
+def test_double_linked_list_pop_empty_raises_exception(dll_fixture):
     """Test pop on empty linked list raises exception."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
     with pytest.raises(IndexError):
-        dll.pop()
+        dll_fixture.pop()
 
 
-def test_size_method_returns_list_length():
+def test_size_method_returns_list_length(dll_fixture):
     """Test size method on linked list."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
-    assert dll.size() == 0
+    assert dll_fixture.size() == 0
 
 
 @pytest.mark.parametrize('n', range(100))
@@ -97,14 +79,12 @@ def test_size_method_returns_list_length2(n):
     assert dll.size() == n
 
 
-def test_double_linked_list_append_value():
+def test_double_linked_list_append_value(dll_fixture):
     """Test double linked list appends value to tail."""
-    from doubly_linked_list import DoublyLinkedList
-    dll = DoublyLinkedList()
     for i in range(5):
-        dll.push(i)
-    dll.append(6)
-    tail = dll.tail.data
+        dll_fixture.push(i)
+    dll_fixture.append(6)
+    tail = dll_fixture.tail.data
     assert tail == 6
 
 
