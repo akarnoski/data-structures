@@ -1,3 +1,4 @@
+"""Test functions for que_ module."""
 import pytest
 
 
@@ -48,3 +49,14 @@ def test_dequeue_raises_exception_on_empty_queue(queue_fixture):
     """Test that index error is raised when dequeuing empty queue."""
     with pytest.raises(IndexError):
         queue_fixture.dequeue()
+
+
+def test_peek_returns_next_value_to_be_dequeued(queue_fixture):
+    """Test that value returned is from node next to be dequeued."""
+    queue_fixture.enqueue(2)
+    assert queue_fixture.peek() == 2
+
+
+def test_peek_returns_none_on_empty_queue(queue_fixture):
+    """Test that None is returned on empty list peek."""
+    assert queue_fixture.peek() is None

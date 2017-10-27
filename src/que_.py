@@ -19,3 +19,9 @@ class Queue(object):
             return self.doubly_linked_list.shift()
         except IndexError:
             raise IndexError('Nothing to dequeue')
+
+    def peek(self):
+        """Get value of next node to be dequeued."""
+        if self.doubly_linked_list.size() == 0:
+            return None
+        return self.doubly_linked_list.tail.data
