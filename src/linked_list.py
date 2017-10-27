@@ -58,7 +58,7 @@ class LinkedList(object):
         if current_node is None:
             raise IndexError("Nothing in the list.")
         try:
-            while current_node or found is False:
+            while current_node and found is False:
                 if node == current_node.data:
                     found = True
                 else:
