@@ -42,3 +42,11 @@ def test_size_method_returns_list_length(n):
     for i in range(n):
         s.push(i)
     assert len(s) == n
+
+
+def test_pop_raises_exception_on_empty_queue():
+    """Test that index error is raised when dequeuing empty queue."""
+    from stack import Stack
+    s = Stack()
+    with pytest.raises(IndexError):
+        s.pop()

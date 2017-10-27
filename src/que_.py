@@ -25,3 +25,7 @@ class Queue(object):
         if self.doubly_linked_list.size() == 0:
             return None
         return self.doubly_linked_list.tail.data
+
+    def size(self):
+        """Get the size of the queue."""
+        return self.doubly_linked_list.size()

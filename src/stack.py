@@ -18,7 +18,7 @@ class Stack(object):
         try:
             return self.linked_list.pop()
         except IndexError:
-            IndexError('Cannot pop from empty stack')
+            raise IndexError('Cannot pop from empty stack')
 
     def __len__(self):
         """Return the list of the stack."""

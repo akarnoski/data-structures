@@ -60,3 +60,15 @@ def test_peek_returns_next_value_to_be_dequeued(queue_fixture):
 def test_peek_returns_none_on_empty_queue(queue_fixture):
     """Test that None is returned on empty list peek."""
     assert queue_fixture.peek() is None
+
+
+def test_size_method_returns_list_length_0_if_empty(queue_fixture):
+    """Test size method returns 0 on empty queue."""
+    assert queue_fixture.size() == 0
+
+
+def test_size_method_returns_list_length(queue_fixture):
+    """Test size method on queue."""
+    queue_fixture.enqueue(2)
+    queue_fixture.enqueue(3)
+    assert queue_fixture.size() == 2
