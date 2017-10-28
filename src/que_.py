@@ -7,28 +7,28 @@ class Queue(object):
 
     def __init__(self):
         """Initialize Queue using DoublyLinkedList methods."""
-        self.doubly_linked_list = DoublyLinkedList()
+        self._doubly_linked_list = DoublyLinkedList()
 
     def enqueue(self, val):
         """Add a node to queue."""
-        self.doubly_linked_list.push(val)
+        self._doubly_linked_list.push(val)
 
     def dequeue(self):
         """Remove first node pushed in."""
         try:
-            return self.doubly_linked_list.shift()
+            return self._doubly_linked_list.shift()
         except IndexError:
             raise IndexError('Nothing to dequeue')
 
     def peek(self):
         """Get value of next node to be dequeued."""
-        if self.doubly_linked_list.size() == 0:
+        if self._doubly_linked_list.size() == 0:
             return None
-        return self.doubly_linked_list.tail.data
+        return self._doubly_linked_list.tail.data
 
     def size(self):
         """Get the size of the queue."""
-        return self.doubly_linked_list.size()
+        return self._doubly_linked_list.size()
 
     def __len__(self):
         """Return the length of the queue using Python len function."""
