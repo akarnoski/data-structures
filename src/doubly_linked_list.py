@@ -81,6 +81,6 @@ class DoublyLinkedList(object):
         """Return length of linked list."""
         return self.size()
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         """Allowed the DLL to use the Python print function to display list."""
         return self.display()

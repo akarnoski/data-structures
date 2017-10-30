@@ -99,3 +99,42 @@ def test_linked_list_can_take_iterable_and_values():
     l = LinkedList(a_list)
     for item in a_list:
         assert l.search(item).data == item
+
+
+def test_linked_list_removes_a_single_node(list_fixture):
+    """Test that remove works with only one node."""
+    list_fixture.push(1)
+    list_fixture.remove(1)
+    assert list_fixture.head is None
+
+
+def test_linked_list_remove_raises_index_error_on_empty_list(list_fixture):
+    """Test that remove raises error on empty list."""
+    with pytest.raises(IndexError):
+        list_fixture.remove(1)
+
+
+def test_linked_list_remove_works(list_fixture):
+    """Test that remove reassigns node nexts."""
+    list_fixture.push(2)
+    list_fixture.push(3)
+    list_fixture.push(4)
+    list_fixture.remove(3)
+    assert list_fixture.head.next.data == 2
+
+
+def test_linked_list_remove_raises_attr_error(list_fixture):
+    """Test that remove function raises attr error."""
+    list_fixture.push(2)
+    list_fixture.push(3)
+    list_fixture.push(4)
+    with pytest.raises(ValueError):
+        list_fixture.remove(5)
+
+
+def test_linked_list_display_returns_correctly(list_fixture):
+    """Test that display displays correctly."""
+    list_fixture.push(2)
+    list_fixture.push(3)
+    list_fixture.push(4)
+    assert list_fixture.display() == "(4, 3, 2)"

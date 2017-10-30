@@ -58,7 +58,7 @@ class LinkedList(object):
         if current_node is None:
             raise IndexError("Nothing in the list.")
         try:
-            while current_node or found is False:
+            while current_node and found is False:
                 if node == current_node.data:
                     found = True
                 else:
@@ -83,10 +83,10 @@ class LinkedList(object):
             node = node.next
         return str(display_this).replace("[", "(").replace("]", ")")
 
-    def __len__(self):
+    def __len__(self):  # pragma: no cover
         """Return length of linked list."""
         return self.size()
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         """Display the linked list."""
         return self.display()
