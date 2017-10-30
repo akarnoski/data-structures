@@ -26,4 +26,5 @@ def queue_fixture():
 @pytest.fixture
 def deque_fixture():
     from deque import Deque
-    return Deque()
+    d = Deque()
+    return d
