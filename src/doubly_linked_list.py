@@ -32,12 +32,12 @@ class DoublyLinkedList(object):
 
     def append(self, val):
         """Add a new value to the tail of the Doubly Linked List."""
-        old_tail = self.tail
         new_tail = Node(val, self.tail)
-        old_tail.next_node = new_tail
+        if self.tail:
+            self.tail.next_node = new_tail
+        else:
+            self.head = new_tail
         self.tail = new_tail
-        self.tail.next_node = None
-        self.tail.previous_node = old_tail
         self._counter += 1
 
     def pop(self):

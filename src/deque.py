@@ -22,7 +22,7 @@ class Deque(object):
         try:
             return self._doubly_linked_list.shift()
         except IndexError:
-            raise IndexError('Nothing to pop')
+            raise IndexError('Nothing to pop from back')
 
     def popleft(self):
         """Remove node at the front."""
