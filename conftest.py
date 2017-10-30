@@ -21,3 +21,9 @@ def queue_fixture():
     from que_ import Queue
     q = Queue()
     return q
+
+
+@pytest.fixture
+def deque_fixture():
+    from deque import Deque
+    return Deque()
