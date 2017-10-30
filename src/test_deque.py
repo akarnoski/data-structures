@@ -38,7 +38,7 @@ def test_dedeque_removes_first_node_added(deque_fixture):
 
 
 def test_popleft_removes_first_node_added_even_with_multiple_nodes(deque_fixture):
-    """Test that node popleftd is first node added even with multiple nodes."""
+    """Test that node popleft'd is first node added even with multiple nodes."""
     deque_fixture.append(2)
     deque_fixture.append(3)
     remove = deque_fixture.popleft()
