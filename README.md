@@ -58,3 +58,24 @@ Data structure that inserts elements at the tail and accesses/removes elements a
     O(1)
 * size()
     O(1)
+
+
+
+## Deque
+A Queue data structure that works at both ends.
+Data can be inserted at the head or tail, and retrieved from the head or the tail.
+### Time Complexity
+* append()
+    O(1)
+* appendleft()
+    O(1)
+* pop()
+    O(1)
+* popleft()
+    O(1)
+* peek()
+    O(1)
+* peekleft()
+    O(1)
+* size()
+    O(1)
