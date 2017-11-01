@@ -13,7 +13,7 @@ class PriorityQueue(object):
         self._priority_dict.setdefault(priority, []).append(value)
 
     def pop(self):
-        """Pop first highest priority value."""
+        """Pop first item in highest priority value."""
         if self._priority_dict == {}:
             raise IndexError('Nothing to pop')
         try:

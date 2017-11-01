@@ -1,4 +1,4 @@
-"""Test functions for priorityq module."""
+"""Test the functions of priorityq module."""
 
 import pytest
 
