@@ -79,3 +79,29 @@ Data can be inserted at the head or tail, and retrieved from the head or the tai
     O(1)
 * size()
     O(1)
+
+
+## Binary Heap
+A tree-type data structure with two main properties:
+- Shape property: The tree is mostly complete with only the deepest level left unfilled
+- Heap property: The heap property has two modes dictating relationships between parent and child nodes
+    Max Heap: Each node is greater than or equal to its child nodes
+    Min Heap: Each node is less than or equal to its child nodes
+
+### Time Complexity
+* push()
+    O(N)
+* pop()
+    O(N)
+
+
+## Priority Queue
+Addition to a value, each item in the queue has a “priority”.
+When an item is popped off of the queue, it returns the highest priority item
+### Time Complexity
+* insert()
+    O(1)
+* pop()
+    O(1)
+* peek()
+    O(1)
