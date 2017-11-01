@@ -15,7 +15,6 @@ class BinaryHeap(object):
         if len(self.heap_list) == 2:
             self._small_heap()
         self._check_heap()
-        return heap
 
     def _small_heap(self):
         heap = self.heap_list
