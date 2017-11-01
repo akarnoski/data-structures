@@ -28,3 +28,10 @@ def deque_fixture():
     from deque import Deque
     d = Deque()
     return d
+
+
+@pytest.fixture
+def bh_fixture():
+    from binheap import BinaryHeap
+    b = BinaryHeap()
+    return b

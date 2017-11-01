@@ -7,25 +7,24 @@ class BinaryHeap(object):
 
     def __init__(self):
         """Initialize the heap list to be used by Binary Heap."""
-        self.heap_list = []
+        self._heap_list = []
 
     def push(self, val):
         """Add new value to heap list and run check heap method."""
-        self.heap_list.append(val)
-        if len(self.heap_list) == 2:
+        self._heap_list.append(val)
+        if len(self._heap_list) == 2:
             self._small_heap()
         self._check_heap()
-        return heap
 
     def _small_heap(self):
-        heap = self.heap_list
+        heap = self._heap_list
         if heap[0] > heap[1]:
             heap[0], heap[1] = heap[1], heap[0]
         return heap
 
     def _check_heap(self):
         """Check all the children are less than their parents."""
-        heap = self.heap_list
+        heap = self._heap_list
         index = floor((len(heap) - 1) / 2)
         i = 0
         while i < index:
@@ -44,13 +43,13 @@ class BinaryHeap(object):
     def pop(self):
         """Remove top value of heap and run check heap method."""
         try:
-            heap = self.heap_list
+            heap = self._heap_list
             index = len(heap) - 1
             heap[0], heap[index] = heap[index], heap[0]
             print(heap[0])
             print(heap[index])
-            self.heap_list.pop()
-            if len(self.heap_list) == 2:
+            self._heap_list.pop()
+            if len(self._heap_list) == 2:
                 self._small_heap()
             self._check_heap()
             return heap
@@ -59,5 +58,5 @@ class BinaryHeap(object):
 
     def _display(self):
         """Make it easier during testing."""
-        for item in self.heap_list:
+        for item in self._heap_list:
             print(item)
