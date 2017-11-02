@@ -69,5 +69,5 @@ class DoublyLinkedList(object):
         return self._counter
 
     def __len__(self):
-        """Return length of linked list."""
+        """Return length of our list."""
         return self.size()
