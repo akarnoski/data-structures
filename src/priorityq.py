@@ -16,9 +16,12 @@ class PriorityQueue(object):
         """Pop first item in highest priority value."""
         if self._priority_dict == {}:
             raise IndexError('Nothing to pop')
+        highest_priority = max(self._priority_dict, key=int)
         try:
-            highest_priority = max(self._priority_dict, key=int)
-            return self._priority_dict[highest_priority].pop(0)
+            popped = self._priority_dict[highest_priority].pop(0)
+            if self._priority_dict[highest_priority] == []:
+                del self._priority_dict[highest_priority]
+            return popped
         except IndexError:
             raise IndexError('Nothing to pop')
 
