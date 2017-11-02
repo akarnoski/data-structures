@@ -14,6 +14,18 @@ def test_pop_removes_highest_priority():
     assert p.pop() == 8
 
 
+def test_pop_removes_raises_error_after_popping_all_values():
+    """Test pop method removed first value in highest priority."""
+    from priorityq import PriorityQueue
+    p = PriorityQueue()
+    p.insert(8, 2)
+    p.insert(10, 2)
+    p.pop()
+    p.pop()
+    with pytest.raises(IndexError):
+        p.pop()
+
+
 def test_pop_on_new_instance_raises_error():
     """Test pop method on new priority queue raises error."""
     from priorityq import PriorityQueue
