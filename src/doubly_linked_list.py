@@ -58,20 +58,11 @@ class DoublyLinkedList(object):
             self.head = None
             self.tail = None
         if not self.tail:
-            raise IndexError("Empty list, unable to pop")
+            raise IndexError("Empty list, unable to shift")
         output = self.tail.data
         self.tail = self.tail.previous_node
         self._counter -= 1
         return output
-
-    def display(self):
-        """Display nodes in linked list."""
-        node = self.head
-        display_this = []
-        while node:
-            display_this.append(node.data)
-            node = node.next_node
-        return str(display_this).replace("[", "(").replace("]", ")")
 
     def size(self):
         """Return size of our list."""
@@ -80,7 +71,3 @@ class DoublyLinkedList(object):
     def __len__(self):
         """Return length of linked list."""
         return self.size()
-
-    def __str__(self):  # pragma: no cover
-        """Allowed the DLL to use the Python print function to display list."""
-        return self.display()
