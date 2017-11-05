@@ -57,6 +57,13 @@ class Graph(object):
             for node in self._nodes_list:
                 if val2 == node.value:
                     node2 = node
+        try:
+            edge_list = self._edge_list[val1]
+            for node in edge_list:
+                if val2 == node.value:
+                    edge_list.remove(node)
+        except KeyError:
+            pass
         self._edge_list.setdefault(node1.value, []).append(node2)
 
     def del_node(self, val):
@@ -70,11 +77,14 @@ class Graph(object):
 
     def del_edge(self, val1, val2):
         """Delete the edge connecting the two values."""
-        edge_list = self._edge_list[val1]
-        for node in edge_list:
-            if val2 == node.value:
-                return edge_list.remove(node)
-        raise IndexError("No connection between those two Nodes.")
+        try:
+            edge_list = self._edge_list[val1]
+            for node in edge_list:
+                if val2 == node.value:
+                    return edge_list.remove(node)
+            raise IndexError("No connection between those two Nodes.")
+        except KeyError:
+            raise KeyError("No Node with given first value.")
 
     def has_node(self, val):
         """Return True is node containing value exists in Graph."""

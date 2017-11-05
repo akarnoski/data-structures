@@ -91,3 +91,37 @@ def test_del_edge_removes_connection(graph_fixture):
     graph_fixture.add_edge(1, 3)
     graph_fixture.del_edge(1, 3)
     assert len(graph_fixture.edges()[1]) == 1
+
+
+def test_del_edge_raises_error(graph_fixture):
+    """Test del_edge raises IndexError.
+
+    Will raise the error if trying to remove an edge between Nodes that doesn't
+    exit.
+    """
+    graph_fixture.add_edge(1, 2)
+    with pytest.raises(IndexError):
+        graph_fixture.del_edge(1, 3)
+
+
+def test_add_edge_overwrites_edge(graph_fixture):
+    """Test that an edge gets overwritten if it is created again."""
+    graph_fixture.add_edge(1, 2)
+    assert len(graph_fixture.edges()[1]) == 1
+    graph_fixture.add_edge(1, 2)
+    assert len(graph_fixture.edges()[1]) == 1
+
+
+def test_neighbors_returns_all_connected_nodes(graph_fixture):
+    """Test neighbors will return all the Nodes connected to Node containing the given value."""
+    graph_fixture.add_edge(1, 2)
+    assert len(graph_fixture.neighbors(1)) == 1
+    graph_fixture.add_edge(1, 3)
+    assert len(graph_fixture.neighbors(1)) == 2
+
+
+def test_nodes_returns_list_of_nodes(graph_fixture):
+    """Test that nodes will return a list of all the created Nodes."""
+    for i in range(4):
+        graph_fixture.add_node(i)
+    assert len(graph_fixture.nodes()) == 4
