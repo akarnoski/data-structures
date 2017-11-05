@@ -35,3 +35,10 @@ def bh_fixture():
     from binheap import BinaryHeap
     b = BinaryHeap()
     return b
+
+
+@pytest.fixture
+def graph_fixture():
+    from graph import Graph
+    g = Graph()
+    return g
