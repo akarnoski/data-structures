@@ -19,7 +19,7 @@ class Graph(object):
     def add_node(self, *args):
         """Add a new node to the Graph."""
         for arg in args:
-            self._nodes.setdefault(arg, [])
+            self._nodes.setdefault(arg, set([]))
 
     def add_edge(self, val1, val2):
         """Add a new edge to the Graph and connects the values.
@@ -64,3 +64,11 @@ class Graph(object):
     def adjacent(self, val1, val2):
         """Return True if there is an edge connecting the two values."""
         return val2 in self._nodes[val1]
+
+    def depth_first_traversal(self, start):
+        """Perform a depth-first traversal and return full visited path."""
+        visited, stack = 
+
+    def breadth_first_traversal(self, start):
+        """Perform a breadth-first traversal and return full visited path."""
+        pass
