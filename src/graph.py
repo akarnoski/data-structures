@@ -68,6 +68,8 @@ class Graph(object):
 
     def depth_first_traversal(self, start):
         """Perform a depth-first traversal and return full visited path."""
+        if start not in self._nodes:
+            raise KeyError("No such value")
         path = []
         visit = Stack()
         curr = start
@@ -84,12 +86,14 @@ class Graph(object):
 
     def breadth_first_traversal(self, start):
         """Perform a breadth-first traversal and return full visited path."""
+        if start not in self._nodes:
+            raise KeyError("No such value")
         path, visit = [], []
         curr = start
         while True:
             try:
                 path.append(curr)
-                visit.append(self.neighbors(curr))
+                visit.extend(self.neighbors(curr))
                 curr = visit[0]
                 visit = visit[1:]
             except IndexError:
