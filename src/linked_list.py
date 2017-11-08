@@ -9,10 +9,6 @@ class Node(object):
         self.data = data
         self.next = next
 
-    def __str__(self):
-        """."""
-        return "Node {}".format(self.data)
-
 
 class LinkedList(object):
     """Build linked list."""
@@ -87,10 +83,10 @@ class LinkedList(object):
             node = node.next
         return str(display_this).replace("[", "(").replace("]", ")")
 
-    def __len__(self):
+    def __len__(self):  # pragma: no cover
         """Return length of linked list."""
         return self.size()
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         """Display the linked list."""
         return self.display()
