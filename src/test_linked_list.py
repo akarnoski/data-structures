@@ -2,6 +2,14 @@
 import pytest
 
 
+@pytest.fixture
+def list_fixture():
+    """A fixture for the Linked List."""
+    from linked_list import LinkedList
+    l = LinkedList()
+    return l
+
+
 def test_node_has_attributes():
     """Test that the node has attributes."""
     from linked_list import Node
