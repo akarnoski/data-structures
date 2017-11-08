@@ -146,7 +146,7 @@ def test_depth_first_traversal(graph_fixture):
 
 
 def test_depth_first_traversal_raises_error(graph_fixture):
-    """Test the functionality of the depth first traversal."""
+    """Test exceptions is raised on traversal of vertex not in graph."""
     DEPTH_LIST = [
         ("A", "B"),
         ("A", "C"),
@@ -162,7 +162,7 @@ def test_depth_first_traversal_raises_error(graph_fixture):
 
 
 def test_empty_graph_depth_first_traversal_raises_error(graph_fixture):
-    """Test the functionality of the depth first traversal."""
+    """Test exceptions raised on empty graph."""
     with pytest.raises(KeyError):
         graph_fixture.depth_first_traversal("M")
 
@@ -185,7 +185,7 @@ def test_breadth_first_traversal(graph_fixture):
 
 
 def test_breadth_first_traversal_raises_error(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
+    """Test exceptions raised on traversal of vertex not in graph."""
     DEPTH_LIST = [
         ("A", "B"),
         ("A", "C"),
@@ -201,13 +201,13 @@ def test_breadth_first_traversal_raises_error(graph_fixture):
 
 
 def test_empty_graph_depth_first_traversal_raises_error(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
+    """Test exception raises on empty graph."""
     with pytest.raises(KeyError):
         graph_fixture.breadth_first_traversal("M")
 
 
 def test_weights_for_edges_with_strings(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
+    """Test the functions returns the weights of letters."""
     EDGE_LIST = [
         ("A", "B"),
         ("A", "C"),
@@ -220,7 +220,7 @@ def test_weights_for_edges_with_strings(graph_fixture):
 
 
 def test_weights_for_edges_with_numbers(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
+    """Test the functions returns the weights of numbers."""
     EDGE_LIST = [
         (1, 2),
         (1, 5),
@@ -233,7 +233,7 @@ def test_weights_for_edges_with_numbers(graph_fixture):
 
 
 def test_weights_for_edges_with_numbers_and_letters(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
+    """Test the functions returns the weights of numbers and letters."""
     EDGE_LIST = [
         (1, "A"),
         (1, "B"),

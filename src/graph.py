@@ -67,7 +67,7 @@ class Graph(object):
         return True if val in self._nodes else False
 
     def neighbors(self, val):
-        """Return list of all nodes connected to the node containing the value."""
+        """Return list of all nodes connected to node containing the value."""
         return self._nodes[val]
 
     def adjacent(self, val1, val2):
@@ -109,7 +109,7 @@ class Graph(object):
         return path
 
     def add_weight(self, val1, val2):
-        """."""
+        """Add weights for all edges."""
         if isinstance(val1, str):
             val1 = ord(val1)
         if isinstance(val2, str):
