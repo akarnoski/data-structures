@@ -31,7 +31,8 @@ class Graph(object):
         if val2 in self._nodes[val1]:  # pragma: no cover
             pass
         else:
-            self._nodes[val1].append(val2)
+            weight = self.add_weight(val1, val2)
+            self._nodes[val1].append({val2: weight})
 
     def del_node(self, val):
         """Delete the node containing the given value."""
@@ -89,9 +90,16 @@ class Graph(object):
         while True:
             try:
                 path.append(curr)
-                visit.append(self.neighbors(curr))
+                visit.extend(self.neighbors(curr))
                 curr = visit[0]
                 visit = visit[1:]
             except IndexError:
                 break
         return path
+
+    def add_weight(self, val1, val2):
+        """."""
+        if isinstance(val1, str) and isinstance(val2, str):
+            return abs(ord(val1) - ord(val2))
+        if isinstance(val1, int) and isinstance(val2, int):
+            return abs(val1 - val2)
