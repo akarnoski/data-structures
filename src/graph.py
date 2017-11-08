@@ -16,7 +16,7 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return "Edges: {} Weights: {}".format(self._nodes, self._weights)
+        return [[self._nodes], [self._weights]]
 
     def weights(self):
         """List all the edges weights in the Graph."""
@@ -110,7 +110,8 @@ class Graph(object):
 
     def add_weight(self, val1, val2):
         """."""
-        if isinstance(val1, str) and isinstance(val2, str):
-            return abs(ord(val1) - ord(val2))
-        if isinstance(val1, int) and isinstance(val2, int):
-            return abs(val1 - val2)
+        if isinstance(val1, str):
+            val1 = ord(val1)
+        if isinstance(val2, str):
+            val2 = ord(val2)
+        return abs(val1 - val2)
