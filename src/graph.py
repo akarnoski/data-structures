@@ -89,7 +89,7 @@ class Graph(object):
         while True:
             try:
                 path.append(curr)
-                visit.append(curr.neighbors)
+                visit.append(self.neighbors(curr))
                 curr = visit[0]
                 visit = visit[1:]
             except IndexError:
