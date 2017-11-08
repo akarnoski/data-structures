@@ -61,7 +61,7 @@ class LinkedList(object):
         found = False
         if current_node is None:
             return ValueError("No such item.")
-        while current_node and found is False:
+        while current_node or found is False:
             if val == current_node.data:
                 found = True
             else:
