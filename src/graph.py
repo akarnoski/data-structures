@@ -67,7 +67,7 @@ class Graph(object):
 
     def depth_first_traversal(self, start):
         """Perform a depth-first traversal and return full visited path."""
-        visited, stack = 
+        pass
 
     def breadth_first_traversal(self, start):
         """Perform a breadth-first traversal and return full visited path."""
