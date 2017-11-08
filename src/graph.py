@@ -16,7 +16,7 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return self._nodes
+        return "Edges: {} Weights: {}".format(self._nodes, self._weights)
 
     def weights(self):
         """List all the edges weights in the Graph."""
@@ -56,6 +56,7 @@ class Graph(object):
             for node in self._nodes[val1]:
                 if val2 == node:
                     self._nodes[val1].remove(node)
+                    del self._weights['{}-{}'.format(val1, val2)]
                     return
             raise IndexError("No connection between those two Nodes.")
         except KeyError:
