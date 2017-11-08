@@ -8,6 +8,7 @@ class Graph(object):
     def __init__(self):
         """Graph things on initialization."""
         self._nodes = {}
+        self._weights = {}
 
     def nodes(self):
         """List all nodes in the Graph."""
@@ -16,6 +17,10 @@ class Graph(object):
     def edges(self):
         """List all edges in the Graph."""
         return self._nodes
+
+    def weights(self):
+        """List all the edges weights in the Graph."""
+        return self._weights
 
     def add_node(self, *args):
         """Add a new node to the Graph."""
@@ -32,7 +37,8 @@ class Graph(object):
             pass
         else:
             weight = self.add_weight(val1, val2)
-            self._nodes[val1].append({val2: weight})
+            self._nodes[val1].append(val2)
+            self._weights['{}-{}'.format(val1, val2)] = weight
 
     def del_node(self, val):
         """Delete the node containing the given value."""
