@@ -1,4 +1,5 @@
 """Create a Graph class data structure."""
+from stack import Stack
 
 
 class Graph(object):
@@ -19,7 +20,7 @@ class Graph(object):
     def add_node(self, *args):
         """Add a new node to the Graph."""
         for arg in args:
-            self._nodes.setdefault(arg, set([]))
+            self._nodes.setdefault(arg, [])
 
     def add_edge(self, val1, val2):
         """Add a new edge to the Graph and connects the values.
@@ -67,8 +68,30 @@ class Graph(object):
 
     def depth_first_traversal(self, start):
         """Perform a depth-first traversal and return full visited path."""
-        pass
+        path = []
+        visit = Stack()
+        curr = start
+        while True:
+            try:
+                neighbors = self.neighbors(curr)
+                for n in neighbors:
+                    visit.push(n)
+                path.append(curr)
+                curr = visit.pop()
+            except IndexError:
+                break
+        return path
 
     def breadth_first_traversal(self, start):
         """Perform a breadth-first traversal and return full visited path."""
-        pass
+        path, visit = [], []
+        curr = start
+        while True:
+            try:
+                path.append(curr)
+                visit.append(curr.neighbors)
+                curr = visit[0]
+                visit = visit[1:]
+            except IndexError:
+                break
+        return path
