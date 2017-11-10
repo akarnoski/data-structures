@@ -8,7 +8,6 @@ class Graph(object):
     def __init__(self):
         """Graph things on initialization."""
         self._nodes = {}
-        self._weights = {}
 
     def nodes(self):
         """List all nodes in the Graph."""
@@ -16,18 +15,14 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return [[self._nodes], [self._weights]]
-
-    def weights(self):
-        """List all the edges weights in the Graph."""
-        return self._weights
+        return self._nodes
 
     def add_node(self, *args):
         """Add a new node to the Graph."""
         for arg in args:
-            self._nodes.setdefault(arg, [])
+            self._nodes.setdefault(arg, {})
 
-    def add_edge(self, val1, val2):
+    def add_edge(self, val1, val2, weight):
         """Add a new edge to the Graph and connects the values.
 
         If either value doesn't exist they will be created.
@@ -36,17 +31,16 @@ class Graph(object):
         if val2 in self._nodes[val1]:  # pragma: no cover
             pass
         else:
-            weight = self.add_weight(val1, val2)
-            self._nodes[val1].append(val2)
-            self._weights['{}-{}'.format(val1, val2)] = weight
+            self._nodes[val1].update({val2: weight})
 
     def del_node(self, val):
         """Delete the node containing the given value."""
         try:
-            del self._nodes[val]
+            if val in self._nodes:
+                del self._nodes[val]
             for key in self._nodes:
-                if val in self._nodes[key]:
-                    self._nodes[key].remove(val)
+                if val in list(self._nodes[key]):
+                    self._nodes[key].pop(val)
         except KeyError:
             raise KeyError("No such Node exists")
 
@@ -55,8 +49,7 @@ class Graph(object):
         try:
             for node in self._nodes[val1]:
                 if val2 == node:
-                    self._nodes[val1].remove(node)
-                    del self._weights['{}-{}'.format(val1, val2)]
+                    self._nodes[val1].pop(node)
                     return
             raise IndexError("No connection between those two Nodes.")
         except KeyError:
@@ -68,7 +61,7 @@ class Graph(object):
 
     def neighbors(self, val):
         """Return list of all nodes connected to node containing the value."""
-        return self._nodes[val]
+        return list(self._nodes[val].keys())
 
     def adjacent(self, val1, val2):
         """Return True if there is an edge connecting the two values."""
@@ -107,11 +100,3 @@ class Graph(object):
             except IndexError:
                 break
         return path
-
-    def add_weight(self, val1, val2):
-        """Add weights for all edges."""
-        if isinstance(val1, str):
-            val1 = ord(val1)
-        if isinstance(val2, str):
-            val2 = ord(val2)
-        return abs(val1 - val2)
