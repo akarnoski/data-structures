@@ -1,12 +1,15 @@
 'use strict';
 
 class Node {
-    constructor(data, next = None){
+    constructor(data){
         this.data = data;
-        this.next = next;
+        this.next = null;
     }
 }
 
 class LinkedList {
-    constructor()
+    constructor(data) {
+        this.data = data
+        this._counter = 0
+    }
 }
