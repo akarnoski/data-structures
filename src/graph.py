@@ -100,3 +100,35 @@ class Graph(object):
             except IndexError:
                 break
         return path
+
+    def shortest_path(self, start, end, graph=None,
+                      visited=[], dist={}, predecessors={}):
+        """Method to find the shortest path between two given values."""
+        graph = self._nodes
+        if start not in graph:
+            raise TypeError("The start value can't be found.")
+        if end not in graph:
+            raise TypeError("The end value can't be found.")
+        if start == end:
+            path = []
+            pred = end
+            while pred is not None:
+                path.append(pred)
+                pred = predecessors.get(pred, None)
+            print('shortest path: ' + str(path))
+        else:
+            if not visited:
+                dist[start] = 0
+            for neighbor in graph[start]:
+                if neighbor not in visited:
+                    new_distance = dist[start] + graph[start][neighbor]
+                    if new_distance < dist.get(neighbor, float('inf')):
+                        dist[neighbor] = new_distance
+                        predecessors[neighbor] = start
+            visited.append(start)
+            unvisited = {}
+            for k in graph:
+                if k not in visited:
+                    unvisited[k] = dist.get(k, float('inf'))
+            x = min(unvisited, key=unvisited.get)
+            self.shortest_path(x, end, graph, visited, dist, predecessors)
