@@ -42,3 +42,10 @@ def graph_fixture():
     from graph import Graph
     g = Graph()
     return g
+
+
+@pytest.fixture
+def bst_fixture():
+    from bst import BinarySearchTree
+    bst = BinarySearchTree()
+    return bst

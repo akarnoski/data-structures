@@ -100,3 +100,17 @@ class Graph(object):
             except IndexError:
                 break
         return path
+
+
+    def dijkstra(self, start, target):
+        """Gonna try and make this during code review."""
+        visited = []
+        dist = {}
+        for node in self.nodes():
+            dist[node] = float("inf")
+        dist[start] = 0
+        current_node = start
+
+        while current_node != target:
+            neighbors = self.neighbors:
+                dist_curr_to_neigh = self.graph[current_node][neighbor]
