@@ -87,3 +87,14 @@ An abstract data type that is meant to implement the directed graph concept from
 * has_node() - O(1)
 * neighbors() - O(1)
 * adjacent() - O(N)
+
+
+## Binary Search Tree
+A binary search tree is a data structure that allows for fast lookup, addition, and removal of items
+### Time Complexity
+* insert() - log n
+* search() - log n
+* depth() - O(1)
+* size() - O(1)
+* contains() - log n
+* balance() - O(1)
