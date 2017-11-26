@@ -1,4 +1,5 @@
 """Create a Binary Search Tree."""
+from stack import Stack
 
 
 class Node(object):
@@ -101,3 +102,55 @@ class BinarySearchTree(object):
         if node.val > self.root.val:
             if new_depth > self._stats['right_depth']:
                 self._stats['right_depth'] = new_depth
+
+    def in_order(self):
+        """Traverse the binary search tree in order."""
+        stack = Stack()
+        curr = self.root
+        ready = True
+        while ready:
+            if curr:
+                stack.push(curr)
+                curr = curr.left
+            else:
+                if len(stack) != 0:
+                    curr = stack.pop()
+                    yield curr.val
+                    curr = curr.right
+                else:
+                    ready = False
+
+    def pre_order(self):
+        """Traverse the binary search tree pre order."""
+        order_list = []
+        stack = Stack()
+        curr = self.root
+        ready = True
+        while ready:
+            if curr:
+                stack.push(curr)
+                if curr not in order_list:
+                    order_list.append(curr.val)
+                curr = curr.left
+            else:
+                if len(stack) != 0:
+                    curr = stack.pop()
+                    curr = curr.right
+                else:
+                    ready = False
+        for value in order_list:
+            yield value
+
+    def post_order(self):
+        """Traverse the binary search tree post order."""
+        order_list = []
+        stack = Stack()
+        curr = self.root
+        if curr:
+            stack.push(curr)
+            curr = curr.left
+        else:
+            if curr.left is None and curr.right is None:
+                print('they none')
+
+        
