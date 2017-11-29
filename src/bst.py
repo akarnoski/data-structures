@@ -1,5 +1,6 @@
 """Create a Binary Search Tree."""
 from stack import Stack
+from que_ import Queue
 
 
 class Node(object):
@@ -10,6 +11,7 @@ class Node(object):
         self.val = val
         self.left = None
         self.right = None
+        self.parent = None
         self.depth = 0
 
 
@@ -42,6 +44,7 @@ class BinarySearchTree(object):
                 if curr.right is None:
                     new_node.depth += 1
                     self.adjust_stats(new_node)
+                    new_node.parent = curr
                     curr.right = new_node
                     break
                 new_node.depth += 1
@@ -50,6 +53,7 @@ class BinarySearchTree(object):
                 if curr.left is None:
                     new_node.depth += 1
                     self.adjust_stats(new_node)
+                    new_node.parent = curr
                     curr.left = new_node
                     break
                 new_node.depth += 1
@@ -146,11 +150,71 @@ class BinarySearchTree(object):
         order_list = []
         stack = Stack()
         curr = self.root
-        if curr:
-            stack.push(curr)
-            curr = curr.left
-        else:
-            if curr.left is None and curr.right is None:
-                print('they none')
+        ready = True
+        while ready:
+            if curr:
+                stack.push(curr)
+                curr = curr.left
+            else:
+                out = stack.pop()
+                print(out.val)
+                if out.left is None and out.right is None:
+                    order_list.append(out.val)
+                if out.left:
+                    if out.left.val in order_list and out.right:
+                        order_list.append(out.right.val)
+                if len(stack) == 0:
+                    ready = False
+                    return order_list
+     
+    # def breadth_first(self):
+    #     """Traverse binary seach tree using breadth first traversal."""
+    #     q = Queue()
+    #     curr = self.root
+    #     q.enqueue(curr.val)
+    #     while len(q) != 0:
 
-        
+    def get_node(self, val):
+        """Helped function to get node on the tree."""
+        curr = self.root
+        while curr:
+            if curr.val is val:
+                return curr
+            if curr.val < val:
+                curr = curr.right
+            if curr.val > val:
+                curr = curr.left
+
+    def delete(self, val):
+        """Delete node from binary search tree."""
+        if self.search(val):
+            delete_node = self.get_node(val)
+            print(delete_node.val)
+        curr = delete_node
+        if curr.right and curr.left:
+            curr = curr.left
+            if curr.right:
+                curr = curr.right
+                while curr.right:
+                    curr = curr.right
+                print('right: {}'.format(curr.val))
+            else:
+                curr = curr.left
+                while curr.left:
+                    curr = curr.left
+                print('left: {}'.format(curr.val))
+
+
+if __name__ == '__main__':
+    bst = BinarySearchTree()
+    bst.insert(15)
+    bst.insert(23)
+    bst.insert(13)
+    bst.insert(10)
+    bst.insert(7)
+    bst.insert(18)
+    bst.insert(30)
+    bst.insert(5)
+    bst.insert(9)
+    bst.insert(17)
+    bst.insert(27)
