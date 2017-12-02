@@ -148,31 +148,30 @@ class BinarySearchTree(object):
     def post_order(self):
         """Traverse the binary search tree post order."""
         order_list = []
-        stack = Stack()
+        q = Queue()
         curr = self.root
-        ready = True
-        while ready:
-            if curr:
-                stack.push(curr)
-                curr = curr.left
-            else:
-                out = stack.pop()
-                print(out.val)
-                if out.left is None and out.right is None:
-                    order_list.append(out.val)
-                if out.left:
-                    if out.left.val in order_list and out.right:
-                        order_list.append(out.right.val)
-                if len(stack) == 0:
-                    ready = False
-                    return order_list
-     
-    # def breadth_first(self):
-    #     """Traverse binary seach tree using breadth first traversal."""
-    #     q = Queue()
-    #     curr = self.root
-    #     q.enqueue(curr.val)
-    #     while len(q) != 0:
+        q.enqueue(curr)
+        while len(q) != 0:
+            curr = q.dequeue()
+            if curr.right:
+                q.enqueue(curr.right)
+            if curr.left:
+                q.enqueue(curr.left)
+            order_list.append(curr.val)
+        return order_list[::-1]
+
+    def breadth_first(self):
+        """Traverse binary seach tree using breadth first traversal."""
+        q = Queue()
+        curr = self.root
+        q.enqueue(curr)
+        while len(q) != 0:
+            curr = q.dequeue()
+            if curr.left:
+                q.enqueue(curr.left)
+            if curr.right:
+                q.enqueue(curr.right)
+            yield curr.val
 
     def get_node(self, val):
         """Helped function to get node on the tree."""
