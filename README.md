@@ -98,3 +98,11 @@ A binary search tree is a data structure that allows for fast lookup, addition, 
 * size() - O(1)
 * contains() - log n
 * balance() - O(1)
+
+
+## Trie Tree
+A Trie Tree is a tree data structure that is used to store an associative array### Time Complexity
+* insert() - log n
+* contains() - log n
+* size() - O(1)
+* remove() *in production*

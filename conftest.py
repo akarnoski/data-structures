@@ -49,3 +49,16 @@ def bst_fixture():
     from bst import BinarySearchTree
     bst = BinarySearchTree()
     return bst
+
+
+@pytest.fixture
+def ht_fixture():
+    from hash_table import HashTable
+    ht = HashTable(20)
+    return ht
+
+@pytest.fixture
+def tt_fixture():
+    from trie_tree import TrieTree
+    tt = TrieTree()
+    return tt
