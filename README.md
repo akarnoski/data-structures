@@ -98,3 +98,11 @@ A binary search tree is a data structure that allows for fast lookup, addition, 
 * size() - O(1)
 * contains() - log n
 * balance() - O(1)
+
+
+## Hash Table
+A Hash Table is is a data structure which implements an associative array abstract data type, a structure that can map keys to values. 
+### Time Complexity
+* get() - log n
+* set() - O(1)
+* hash() - O(1)
