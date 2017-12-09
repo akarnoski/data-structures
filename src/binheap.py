@@ -57,5 +57,4 @@ class BinaryHeap(object):
     def _display(self):  # pragma: no cover
         """Make it easier during testing."""
         for item in self._heap_list:
->>>>>>> 357b1398a2817910fe3b0996d498b7fd975c6976
             print(item)
