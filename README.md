@@ -100,9 +100,18 @@ A binary search tree is a data structure that allows for fast lookup, addition, 
 * balance() - O(1)
 
 
+## Trie Tree
+A Trie Tree is a tree data structure that is used to store an associative array### Time Complexity
+* insert() - log n
+* contains() - log n
+* size() - O(1)
+* remove() *in production*
+
+
 ## Hash Table
 A Hash Table is is a data structure which implements an associative array abstract data type, a structure that can map keys to values. 
 ### Time Complexity
 * get() - log n
 * set() - O(1)
 * hash() - O(1)
+
