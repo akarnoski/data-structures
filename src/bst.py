@@ -1,4 +1,6 @@
 """Create a Binary Search Tree."""
+from stack import Stack
+from que_ import Queue
 
 
 class Node(object):
@@ -9,6 +11,8 @@ class Node(object):
         self.val = val
         self.left = None
         self.right = None
+        self.parent = None
+        self.color = None
         self.depth = 0
 
 
@@ -16,7 +20,7 @@ class BinarySearchTree(object):
     """Build binary search tree object."""
 
     def __init__(self, iterable=()):
-        """Constructor for the Linked List object."""
+        """Constructor for the binary search tree object."""
         self.root = None
         self._stats = {
             'counter': 0,
@@ -41,6 +45,7 @@ class BinarySearchTree(object):
                 if curr.right is None:
                     new_node.depth += 1
                     self.adjust_stats(new_node)
+                    new_node.parent = curr
                     curr.right = new_node
                     break
                 new_node.depth += 1
@@ -49,6 +54,7 @@ class BinarySearchTree(object):
                 if curr.left is None:
                     new_node.depth += 1
                     self.adjust_stats(new_node)
+                    new_node.parent = curr
                     curr.left = new_node
                     break
                 new_node.depth += 1
@@ -101,3 +107,112 @@ class BinarySearchTree(object):
         if node.val > self.root.val:
             if new_depth > self._stats['right_depth']:
                 self._stats['right_depth'] = new_depth
+
+    def in_order(self):
+        """Traverse the binary search tree in order."""
+        stack = []
+        curr = self.root
+        ready = True
+        while ready:
+            if curr:
+                stack.append(curr)
+                curr = curr.left
+            else:
+                if len(stack) != 0:
+                    curr = stack.pop()
+                    yield curr.val
+                    curr = curr.right
+                else:
+                    break
+
+    def pre_order(self):
+        """Traverse the binary search tree pre order."""
+        order_list = []
+        stack = Stack()
+        curr = self.root
+        ready = True
+        while ready:
+            if curr:
+                stack.push(curr)
+                if curr not in order_list:
+                    order_list.append(curr.val)
+                curr = curr.left
+            else:
+                if len(stack) != 0:
+                    curr = stack.pop()
+                    curr = curr.right
+                else:
+                    ready = False
+        for value in order_list:
+            yield value
+
+    def post_order(self):
+        """Traverse the binary search tree post order."""
+        order_list = []
+        q = Queue()
+        curr = self.root
+        q.enqueue(curr)
+        while len(q) != 0:
+            curr = q.dequeue()
+            if curr.right:
+                q.enqueue(curr.right)
+            if curr.left:
+                q.enqueue(curr.left)
+            order_list.append(curr.val)
+        return order_list[::-1]
+
+    def breadth_first(self):
+        """Traverse binary seach tree using breadth first traversal."""
+        q = Queue()
+        curr = self.root
+        q.enqueue(curr)
+        while len(q) != 0:
+            curr = q.dequeue()
+            if curr.left:
+                q.enqueue(curr.left)
+            if curr.right:
+                q.enqueue(curr.right)
+            yield curr.val
+
+    def get_node(self, val):
+        """Helped function to get node on the tree."""
+        curr = self.root
+        while curr:
+            if curr.val is val:
+                return curr
+            if curr.val < val:
+                curr = curr.right
+            if curr.val > val:
+                curr = curr.left
+
+    def delete(self, val):
+        """Delete node from binary search tree."""
+        if self.search(val):
+            delete_node = self.get_node(val)
+            print(delete_node.val)
+        curr = delete_node
+        if curr.right and curr.left:
+            curr = curr.left
+            if curr.right:
+                curr = curr.right
+                while curr.right:
+                    curr = curr.right
+                print('right: {}'.format(curr.val))
+            else:
+                curr = curr.left
+                while curr.left:
+                    curr = curr.left
+                print('left: {}'.format(curr.val))
+
+if __name__ == '__main__':
+    bst = BinarySearchTree()
+    input_list = [23, 13, 29, 5, 17]
+    for item in input_list:
+        bst.insert(item)
+    # bst.insert(15)
+    # bst.insert(23)
+    # bst.insert(13)
+    # bst.insert(10)
+    # bst.insert(14)
+    # bst.insert(27)
+
