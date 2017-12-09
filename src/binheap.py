@@ -35,7 +35,7 @@ class BinaryHeap(object):
                 r = (2 * i) + 2
                 if heap[i] > heap[r]:
                     heap[i], heap[r] = heap[r], heap[i]
-            except IndexError:
+            except IndexError:  # pragma: no cover
                 pass
             i += 1
         return heap
@@ -46,8 +46,6 @@ class BinaryHeap(object):
             heap = self._heap_list
             index = len(heap) - 1
             heap[0], heap[index] = heap[index], heap[0]
-            print(heap[0])
-            print(heap[index])
             self._heap_list.pop()
             if len(self._heap_list) == 2:
                 self._small_heap()
@@ -56,7 +54,7 @@ class BinaryHeap(object):
         except IndexError:
             raise IndexError('Nothing available to pop')
 
-    def _display(self):
+    def _display(self):  # pragma: no cover
         """Make it easier during testing."""
         for item in self._heap_list:
             print(item)

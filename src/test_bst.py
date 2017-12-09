@@ -147,25 +147,3 @@ def test_balance_returns_zero_if_tree_is_empty(bst_fixture):
     """Test balance is positive when depth is greater on right left."""
     assert bst_fixture.balance() == 0
 
-
-def test_delete_on_one_node_tree(bst_fixture):
-    """Test balance is positive when depth is greater on right left."""
-    bst_fixture.insert(13)
-    bst_fixture.delete(13)
-    assert bst_fixture.contains(13) is False
-
-
-def test_delete_on_zero_children(bst_fixture):
-    """Test balance is positive when depth is greater on right left."""
-    bst_fixture.insert(21)
-    bst_fixture.insert(13)
-    bst_fixture.delete(13)
-    assert bst_fixture.contains(13) is False
-
-
-def test_delete_on_couple_node_one_child(bst_fixture):
-    """Test balance is positive when depth is greater on right left."""
-    bst_fixture.insert(21)
-    bst_fixture.insert(13)
-    bst_fixture.delete(21)
-    assert bst_fixture.contains(21) is False

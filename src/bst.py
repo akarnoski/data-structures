@@ -12,6 +12,7 @@ class Node(object):
         self.left = None
         self.right = None
         self.parent = None
+        self.color = None
         self.depth = 0
 
 
@@ -109,12 +110,12 @@ class BinarySearchTree(object):
 
     def in_order(self):
         """Traverse the binary search tree in order."""
-        stack = Stack()
+        stack = []
         curr = self.root
         ready = True
         while ready:
             if curr:
-                stack.push(curr)
+                stack.append(curr)
                 curr = curr.left
             else:
                 if len(stack) != 0:
@@ -122,7 +123,7 @@ class BinarySearchTree(object):
                     yield curr.val
                     curr = curr.right
                 else:
-                    ready = False
+                    break
 
     def pre_order(self):
         """Traverse the binary search tree pre order."""
@@ -229,15 +230,3 @@ class BinarySearchTree(object):
                 parent.left = swap_node
 
 
-if __name__ == '__main__':
-    bst = BinarySearchTree()
-    # bst.insert(18)
-    # bst.insert(23)
-    # bst.insert(13)
-    # bst.insert(10)
-    # bst.insert(14)
-    # bst.insert(27)
-    # bst.insert(15)
-    # bst.insert(12)
-    # bst.insert(6)
-    # bst.insert(11)
