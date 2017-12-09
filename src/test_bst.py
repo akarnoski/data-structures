@@ -147,12 +147,3 @@ def test_balance_returns_zero_if_tree_is_empty(bst_fixture):
     """Test balance is positive when depth is greater on right left."""
     assert bst_fixture.balance() == 0
 
-
-def test_in_order_traversal(bst_fixture):
-    """Test correct output from in order traversal."""
-    bst_fixture.insert([23, 13, 29, 5, 17])
-    out = bst_fixture.in_order()
-    list_out = []
-    for i in range(bst_fixture.size()):
-        list_out.append(next(out))
-    assert list_out[0] == [5, 13, 17, 23, 29]

@@ -189,30 +189,44 @@ class BinarySearchTree(object):
         """Delete node from binary search tree."""
         if self.search(val):
             delete_node = self.get_node(val)
-            print(delete_node.val)
         curr = delete_node
+        if curr.right is None and curr.left is None:
+            if curr.val == self.root.val:
+                self.root = None
+                return
+            parent = curr.parent
+            if curr.val > parent.val:
+                parent.right = None
+            else:
+                parent.left = None
+        if curr.right and curr.left is None:
+            child = curr.right
+            parent = curr.parent
+            if curr.val == parent.left.val:
+                parent.left = child
+            if curr.val == parent.right.val:
+                parent.right = child
+        if curr.left and curr.right is None:
+            child = curr.left
+            parent = curr.parent
+            if curr.val == parent.left.val:
+                parent.left = child
+            if curr.val == parent.right.val:
+                parent.right = child
         if curr.right and curr.left:
+            parent = delete_node.parent
             curr = curr.left
             if curr.right:
-                curr = curr.right
                 while curr.right:
                     curr = curr.right
-                print('right: {}'.format(curr.val))
-            else:
-                curr = curr.left
-                while curr.left:
-                    curr = curr.left
-                print('left: {}'.format(curr.val))
+            swap_node = curr
+            swap_node.left = delete_node.left
+            swap_node.left.parent = swap_node
+            swap_node.right = delete_node.right
+            swap_node.right.parent = swap_node
+            if parent.right.val == delete_node.val:
+                parent.right = swap_node
+            if parent.left.val == delete_node.val:
+                parent.left = swap_node
 
-if __name__ == '__main__':
-    bst = BinarySearchTree()
-    input_list = [23, 13, 29, 5, 17]
-    for item in input_list:
-        bst.insert(item)
-    # bst.insert(15)
-    # bst.insert(23)
-    # bst.insert(13)
-    # bst.insert(10)
-    # bst.insert(14)
-    # bst.insert(27)
 
