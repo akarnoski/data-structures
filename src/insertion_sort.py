@@ -17,6 +17,4 @@ def insertion_sort(input):
 if __name__ == '__main__':  # pragma: no cover
     import timeit
     thing = [1, 2, 3, 4, 5, 6]
-    mycode = insertion_sort(thing)
-    t = timeit.Timer(insertion_sort(thing))
-    print(t.timeit())
+    print(timeit.timeit("insertion_sort(thing)", setup="from __main__ import insertion_sort, thing"))
