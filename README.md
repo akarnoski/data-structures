@@ -1,5 +1,27 @@
-# data-structures
-Code 401: Python Data Structures
+# Data Structures & Algorithms
+
+**Introduction**
+
+In computer science, a data structure is a particular way of organizing 
+and storing data in a computer so that it can be accessed and modified 
+efficiently. More precisely, a data structure is a collection of data values, 
+the relationships among them, and the functions or operations that can be applied 
+to the data.[wiki](https://en.wikipedia.org/wiki/Data_structure)
+
+The following data structures are solved using Python by [myself](https://github.com/adriennekarnoski) 
+and [Cody Dibble](https://github.com/hcodydibble).
+
+**Installation:**
+- Clone the repository:
+- `$ git clone https://github.com/adriennekarnoski/data-structures`
+- Move into the **data-structures** directory:
+- `$ cd data-structures`
+- Start your virtual environment:
+- `$ python3 -m venv ENV`
+- `$ source bin/ENV/activate`
+- Install package
+- `$ (ENV) pip install -e .`
+
 
 ## Linked List
 Consists of Nodes, each of which contains some data and a pointer to the next node.
