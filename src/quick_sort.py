@@ -14,7 +14,6 @@ def quick_sort(input):
             if input[x + 1] < pivot:
                 input[x + 1], input[i + 1] = input[i + 1], input[x + 1]
                 i += 1
-                print(i)
         input[0], input[i] = input[i], input[0]
         small_stuff = quick_sort(input[:i + 1])
         big_stuff = quick_sort(input[i + 1:])
