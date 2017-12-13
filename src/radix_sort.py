@@ -13,12 +13,11 @@ def radix_sort(input):
     place = 1
     # while index != 0:     
     for number in output:
-        print(index)
         digit = number[-place]
-        # bucket = buckets[digit]
-    #     bucket.enqueue(number)
-    # test = buckets[1].dequeue()
-    print(digit)
+        bucket = buckets[digit]
+        bucket.enqueue(number)
+    test = buckets[1].dequeue()
+    print(test)
 
 
 def _preppin_nums(input):
