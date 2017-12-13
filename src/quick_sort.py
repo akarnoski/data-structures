@@ -1,22 +1,22 @@
 """Function for the quick sort alogorithm."""
 
 
-def quick_sort(input):
+def quick_sort(in_list):
     """Quick sort function."""
-    if not isinstance(input, list):
+    if not isinstance(in_list, list):
         raise TypeError('Please insert a list')
-    if len(input) <= 1:
-        return input
+    if len(in_list) <= 1:
+        return in_list
     else:
-        pivot = input[0]
+        pivot = in_list[0]
         i = 0
-        for x in range(len(input) - 1):
-            if input[x + 1] < pivot:
-                input[x + 1], input[i + 1] = input[i + 1], input[x + 1]
+        for x in range(len(in_list) - 1):
+            if in_list[x + 1] < pivot:
+                in_list[x + 1], in_list[i + 1] = in_list[i + 1], in_list[x + 1]
                 i += 1
-        input[0], input[i] = input[i], input[0]
-        small_stuff = quick_sort(input[:i + 1])
-        big_stuff = quick_sort(input[i + 1:])
+        in_list[0], in_list[i] = in_list[i], in_list[0]
+        small_stuff = quick_sort(in_list[:i + 1])
+        big_stuff = quick_sort(in_list[i + 1:])
         return small_stuff + big_stuff
 
 

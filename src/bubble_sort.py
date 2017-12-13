@@ -1,18 +1,18 @@
 """Create a bubble sort algorithm."""
 
 
-def bubble_sort(input):
+def bubble_sort(in_list):
     """Function to run the bubble sort algorithm."""
-    if not isinstance(input, list):
+    if not isinstance(in_list, list):
         raise TypeError('Please insert a list')
     swapped = True
     while swapped:
         swapped = False
-        for i in range(len(input) - 1):
-            if input[i] > input[i + 1]:
-                input[i], input[i + 1] = input[i + 1], input[i]
+        for i in range(len(in_list) - 1):
+            if in_list[i] > in_list[i + 1]:
+                in_list[i], in_list[i + 1] = in_list[i + 1], in_list[i]
                 swapped = True
-    return input
+    return in_list
 
 
 if __name__ == '__main__':  # pragma: no cover
