@@ -4,7 +4,7 @@ setup(
     name="data-structures",
     version='0.0',
     description="Data structures.",
-    authors="Adrienne Karnoski & Cody Dibble",
+    author="Adrienne Karnoski & Cody Dibble",
     author_email="adrienne.j.karnoski@gmail.com",
     py_modules=[
         'binheadp',
@@ -19,4 +19,5 @@ setup(
         ],
     install_requires=[],
     extras_require={'test': ['pytest', 'pytest-watch', 'tox']},
+    package_dir={"": "src"}
 )
