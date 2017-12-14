@@ -1,6 +1,7 @@
 """Test bubble sort for all it's sorted bubbliness."""
 import pytest
 
+
 def test_bubble_sort_can_be_imported():
     """Test import works okay."""
     from bubble_sort import bubble_sort
