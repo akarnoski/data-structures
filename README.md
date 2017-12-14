@@ -257,7 +257,8 @@ compares each pair of adjacent items and swaps them if they are in the wrong ord
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| Big O | O(n) | O(n^2) | O(1) |
+| **Big O** | O(n) | O(n^2) | O(1) |
+
 
 ***
 
@@ -280,7 +281,8 @@ while all elements with values greater than the pivot come after it
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| Big O | O(n log n) | O(n^2) | O(n^2) |
+| **Big O** | O(n log n) | O(n^2) | O(n^2) |
+
 
 ***
 
@@ -293,7 +295,8 @@ one by one and inserting them in their correct position into a new sorted list.
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| Big O | O(n) | O(n^2) | O(n log n) |
+| **Big O** | O(n) | O(n^2) | O(n log n) |
+
 
 ***
 
@@ -303,7 +306,7 @@ one by one and inserting them in their correct position into a new sorted list.
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| Big O | O(n log n) | O(log n) | O(n log n) |
+| **Big O** | O(n log n) | O(log n) | O(n log n) |
 
 
 ***
