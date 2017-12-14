@@ -177,11 +177,11 @@ which are referred to as the left child and the right child.
 
 | Method | Big O |
 |--------|-------|
-|`.insert()` | log N |
-|`.search()` | log N |
+|`.insert()` | O(log(n)) |
+|`.search()` | O(log(n)) |
 |`.depth()` | O(1) |
 |`.size()` | O(1) |
-|`.contains()` | log N |
+|`.contains()` | O(log(n)) |
 |`.balance` | O(1) |
 
 ***
@@ -215,8 +215,8 @@ store a dynamic set or associative array where the keys are usually strings.
 
 | Method | Big O |
 |--------|-------|
-|`.insert()` | log N |
-|`.contains()` | log N |
+|`.insert()` | O(log(n)) |
+|`.contains()` | O(log(n)) |
 |`.size()` | O(1) |
 |`.remove()` | O(1) |
 
@@ -230,7 +230,7 @@ a structure that can map keys to values.
 
 | Method | Big O |
 |--------|-------|
-|`.get()` | log N |
+|`.get()` | O(log(n)) |
 |`.set()` | O(1) |
 |`.hash()` | O(1) |
 
@@ -274,7 +274,7 @@ to partition an array an element called a pivot is selected.
  All elements smaller than the pivot are moved before it and all greater elements are moved after it.
 [[12]](https://en.wikipedia.org/wiki/Quicksort)
 
- **Steps**
+**Steps**
 
 - Pick an element, called a pivot, from the array 
 - Reorder the array so that all elements with values less than the pivot come before the pivot, 
@@ -287,7 +287,7 @@ while all elements with values greater than the pivot come after it
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| **Big O** | O(n log n) | O(n^2) | O(n^2) |
+| **Big O** | O(n log(n)) | O(n^2) | O(n^2) |
 
 
 ***
@@ -297,22 +297,63 @@ A simple sorting algorithm that works by taking elements from the list
 one by one and inserting them in their correct position into a new sorted list.
 [[13]](https://en.wikipedia.org/wiki/Insertion_sort)
 
+**Steps**
+
+- Start iterating at the beginning of the un-sorted list
+- Compare the first two elements
+- If the first two elements are already in ascending order, the first element is considered to be in 
+a sorted sub-list
+- Move to next position
+- At each position, check the value there against the largest value in the sorted list
+- If larger, leave the element in place and moves to the next
+- If smaller, insert the element into the correct position within the sorted list
+
+
 **Time Complexity**
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| **Big O** | O(n) | O(n^2) | O(n log n) |
+| **Big O** | O(n) | O(n^2) | O(n log(n)) |
 
 
 ***
 
 ### Merge Sort 
+Divide and conquer algorithm that keeps on dividing the list into equal halves until it can no more 
+be divided. Then, merge sort combines the smaller sorted lists keeping the new list sorted too.
+[[14]](https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm)
+
+**Steps**
+
+- Divide the list recursively into two halves until it can no more be divided
+- Repeatedly merge sublists to produce new sorted sublists 
+- When there is only 1 sublist remaining, this will be the sorted list
 
 **Time Complexity**
 
 |  | Best | Worst | Average |
 |------|:----:|:-----:|:-------:|
-| **Big O** | O(n log n) | O(log n) | O(n log n) |
+| **Big O** | O(n log(n)) | O(log(n)) | O(n log(n)) |
 
 
 ***
+
+### Radix Sort
+Non-comparative integer sorting algorithm that sorts data with integer 
+keys by grouping keys by the individual digits which share the same significant position and value.
+[[15]](https://en.wikipedia.org/wiki/Radix_sort)
+
+**Steps**
+
+- Take the least significant digit of each key (1's place)
+- Group the keys into buckets based on that digit
+- Each bucket preserves the original order of the keys as the keys are dropped into the bucket
+- Empty buckets
+- Sort by next digit (10's place)
+- Repeat until each the digit has been reached
+
+**Time Complexity**
+
+|  | Best | Worst | Average |
+|------|:----:|:-----:|:-------:|
+| **Big O** | O(n(k)) | O(n(k)) | O(n(k)) |
