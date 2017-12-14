@@ -2,15 +2,8 @@
 
 **Introduction**
 
-In computer science, a data structure is a particular way of organizing 
-and storing data in a computer so that it can be accessed and modified 
-efficiently. More precisely, a data structure is a collection of data values, 
-the relationships among them, and the functions or operations that can be applied 
-to the data.[[1]](https://en.wikipedia.org/wiki/Data_structure)
-
-The following data structures are solved using Python by [myself](https://github.com/adriennekarnoski) 
+The following data structures and algorithms are solved using Python by [myself](https://github.com/adriennekarnoski) 
 and [Cody Dibble](https://github.com/hcodydibble).
-
 
 ## Getting Started
 
@@ -39,6 +32,12 @@ Install package
 
 ## Data Structures
 
+In computer science, a data structure is a particular way of organizing 
+and storing data in a computer so that it can be accessed and modified 
+efficiently. More precisely, a data structure is a collection of data values, 
+the relationships among them, and the functions or operations that can be applied 
+to the data.[[1]](https://en.wikipedia.org/wiki/Data_structure)
+
 ### Linked List
 Linear data structure where each element is a separate object.
  Each element of a list is comprising of two items – the data and a reference to the next node.
@@ -51,9 +50,9 @@ Linear data structure where each element is a separate object.
 |`.push()` | O(1) |
 |`.pop()` | O(1) |
 |`.size()` | O(1) |
-|`.search()` | O(N) |
-|`.remove()` | O(N) |
-|`.display()` | O(N) |
+|`.search()` | O(n) |
+|`.remove()` | O(n) |
+|`.display()` | O(n) |
 
 ***
 
@@ -70,7 +69,7 @@ One of the reference points to the next node and one to the previous node.
 |`.append()` | O(1) |
 |`.pop()` | O(1) |
 |`.shift()` | O(1) |
-|`.display()` | O(N) |
+|`.display()` | O(n) |
 |`.size()` | O(1) |
 
 ***
@@ -160,8 +159,8 @@ A tree-type data structure with two main properties:
 
 | Method | Big O |
 |--------|-------|
-|`.push()` | O(N) |
-|`.pop()` | O(N) |
+|`.push()` | O(n) |
+|`.pop()` | O(n) |
 
 ***
 
@@ -191,15 +190,15 @@ specifically the field of graph theory.
 
 | Method | Big O |
 |--------|-------|
-|`.nodes()` | O(N) |
+|`.nodes()` | O(n) |
 |`.edges()` | O(1) |
 |`.add_node()` | O(1) |
 |`.add_edge()` | O(1) |
-|`.del_node()` | O(N) |
-|`.del_edge()` | O(N) |
+|`.del_node()` | O(n) |
+|`.del_edge()` | O(n) |
 |`.has_node()` | O(1) |
 |`.neighbors()` | O(1) |
-|`.adjacent()` | O(N) |
+|`.adjacent()` | O(n) |
 
 ***
 
@@ -234,7 +233,84 @@ a structure that can map keys to values.
 
 ## Sorting Algorithms
 
+A sorting algorithm is an algorithm that puts elements of a list in a certain order. 
+Efficient sorting is important for optimizing the use of other algorithms 
+(such as search and merge algorithms) which require input data to be in sorted lists; 
+it is also often useful for canonicalizing data and for producing human-readable output.
+[[10]](https://en.wikipedia.org/wiki/Sorting_algorithm)
+
+
 ### Bubble Sort
+Simple sorting algorithm that repeatedly steps through the list to be sorted, 
+compares each pair of adjacent items and swaps them if they are in the wrong order.
+[[11]](https://en.wikipedia.org/wiki/Bubble_sort)
+
+**Steps**
+
+- Start at the beginning of the data set 
+- Compare the first two elements
+- If the first is greater than the second, swap them
+- Continue doing this for each pair of adjacent elements to the end of the data set 
+- Start again with the first two elements, repeating until no swaps have occurred on the last pass
+
+**Time Complexity**
+
+| Case | Big O |
+|--------|-------|
+| Best | O(n) |
+| Worst | O(n^2) |
+| Average | O(1) |
+
+***
+
 ### Quick Sort
+Divide and conquer algorithm which relies on a partition operation: 
+to partition an array an element called a pivot is selected.
+ All elements smaller than the pivot are moved before it and all greater elements are moved after it.
+[[12]](https://en.wikipedia.org/wiki/Quicksort)
+
+ **Steps**
+
+- Pick an element, called a pivot, from the array 
+- Reorder the array so that all elements with values less than the pivot come before the pivot, 
+while all elements with values greater than the pivot come after it
+- After this partitioning, the pivot is in its final position
+- Recursively apply the above steps to the sub-array of elements with smaller values 
+- Separately, recursively apply the above steps to the sub-array of elements with greater values
+
+**Time Complexity**
+
+| Case | Big O |
+|--------|-------|
+| Best | O(n log n) |
+| Worst | O(n^2) |
+| Average | O(n^2) |
+
+***
+
 ### Insertion Sort
+A simple sorting algorithm that works by taking elements from the list 
+one by one and inserting them in their correct position into a new sorted list.
+[[13]](https://en.wikipedia.org/wiki/Insertion_sort)
+
+**Time Complexity**
+
+| Case | Big O |
+|--------|-------|
+| Best | O(n) |
+| Worst | O(n^2) |
+| Average | O(n log n) |
+
+***
+
 ### Merge Sort 
+
+**Time Complexity**
+
+| Case | Big O |
+|--------|-------|
+| Best | O(n log n) |
+| Worst | O(log n) |
+| Average | O(n log n) |
+
+***
