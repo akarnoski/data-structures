@@ -16,5 +16,9 @@ def insertion_sort(input):
 
 if __name__ == '__main__':  # pragma: no cover
     import timeit
-    thing = [1, 2, 3, 4, 5, 6]
-    print(timeit.timeit("insertion_sort(thing)", setup="from __main__ import insertion_sort, thing"))
+    good = [1, 2, 3, 4, 5, 6]
+    bad = [6, 5, 4, 3, 2, 1]
+    average = [2, 1, 5, 4, 6]
+    print('A good time: {}'.format(timeit.timeit("insertion_sort(good)", setup="from __main__ import insertion_sort, good")))
+    print('A bad time: {}'.format(timeit.timeit("insertion_sort(bad)", setup="from __main__ import insertion_sort, bad")))
+    print('An average time: {}'.format(timeit.timeit("insertion_sort(average)", setup="from __main__ import insertion_sort, average")))
