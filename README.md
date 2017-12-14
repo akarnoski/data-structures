@@ -8,9 +8,11 @@ and [Cody Dibble](https://github.com/hcodydibble).
 ## Getting Started
 
 **Check out the code**
+
 [Click Here!](https://github.com/adriennekarnoski/data-structures/tree/master/src)
 
-**Installation:**
+**Installation**
+
 Clone the repository:
 
 `$ git clone https://github.com/adriennekarnoski/data-structures`
@@ -37,6 +39,8 @@ and storing data in a computer so that it can be accessed and modified
 efficiently. More precisely, a data structure is a collection of data values, 
 the relationships among them, and the functions or operations that can be applied 
 to the data.[[1]](https://en.wikipedia.org/wiki/Data_structure)
+
+***
 
 ### Linked List
 Linear data structure where each element is a separate object.
@@ -230,6 +234,7 @@ a structure that can map keys to values.
 |`.set()` | O(1) |
 |`.hash()` | O(1) |
 
+***
 
 ## Sorting Algorithms
 
@@ -239,6 +244,7 @@ Efficient sorting is important for optimizing the use of other algorithms
 it is also often useful for canonicalizing data and for producing human-readable output.
 [[10]](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
+***
 
 ### Bubble Sort
 Simple sorting algorithm that repeatedly steps through the list to be sorted, 
