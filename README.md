@@ -31,7 +31,7 @@ and [Cody Dibble](https://github.com/hcodydibble).
 ### Linked List
 Linear data structure where each element is a separate object.
  Each element of a list is comprising of two items – the data and a reference to the next node.
- [2](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
+ [[2]](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
 
 **Time Complexity**
 
@@ -48,7 +48,7 @@ Linear data structure where each element is a separate object.
 ### Doubly Linked List
 Type of Linked list, there are two references associated with each node, 
 One of the reference points to the next node and one to the previous node.
-[3](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
+[[3]](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
 
 **Time Complexity**
 
@@ -67,7 +67,7 @@ Abstract data type that serves as a collection of elements, with two principal o
 **push**, which adds an element to the collection, and **pop**, 
 which removes the last element that was added. In stack both the operations 
 of push and pop takes place at the same end that is top of the stack.
-[4](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
+[[4]](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
 
 **Time Complexity**
 
@@ -83,7 +83,7 @@ Abstract data type that serves as a collection of elements,
 with two principal operations: **enqueue**, the process of adding an 
 element to the collection, and **dequeue**, the process of removing the 
 first element that was added.
-[5](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
+[[5]](http://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures/)
 
 **Time Complexity**
 
@@ -98,12 +98,12 @@ first element that was added.
 ### Deque (Double-Ended Queue)
 Abstract data type that generalizes a queue, 
 for which elements can be added to or removed from either the front or back.
-[6](https://en.wikipedia.org/wiki/Double-ended_queue)
+[[6]](https://en.wikipedia.org/wiki/Double-ended_queue)
 
 **Time Complexity**
 
 | Method | Front/Back | Big O |
-|--------|-------|-------|
+|--------|:-----:|-------|
 |`.append()` | Back | O(1) |
 |`.appendleft()` | Front | O(1) |
 |`.pop()` | Back | O(1) |
@@ -119,7 +119,7 @@ but where additionally each element has a "priority" associated with it.
 In a priority queue, an element with high priority is served before an 
 element with low priority. If two elements have the same priority, 
 they are served according to their order in the queue.
-[7](https://en.wikipedia.org/wiki/Priority_queue)
+[[7]](https://en.wikipedia.org/wiki/Priority_queue)
 
 **Time Complexity**
 
@@ -132,10 +132,12 @@ they are served according to their order in the queue.
 
 ### Binary Heap
 A tree-type data structure with two main properties:
-- Shape property: The tree is mostly complete with only the deepest level left unfilled
-- Heap property: The heap property has two modes dictating relationships between parent and child nodes
-    Max Heap: Each node is greater than or equal to its child nodes
-    Min Heap: Each node is less than or equal to its child nodes
+
+**Shape property**: The tree is mostly complete with only the deepest level left unfilled
+
+**Heap property**: The heap property has two modes dictating relationships between parent and child nodes:
+- Max Heap: Each node is greater than or equal to its child nodes
+- Min Heap: Each node is less than or equal to its child nodes
 
 **Time Complexity**
 
@@ -146,7 +148,9 @@ A tree-type data structure with two main properties:
 
 
 ### Binary Search Tree
-A binary search tree is a data structure that allows for fast lookup, addition, and removal of items
+Tree data structure in which each node has at most two children, 
+which are referred to as the left child and the right child.
+[[8]](https://en.wikipedia.org/wiki/Binary_tree)
 
 **Time Complexity**
 
@@ -161,7 +165,8 @@ A binary search tree is a data structure that allows for fast lookup, addition, 
 
 
 ### Graph
-An abstract data type that is meant to implement the directed graph concept from mathematics, specifically the field of graph theory.
+An abstract data type that is meant to implement the directed graph concept from mathematics, 
+specifically the field of graph theory.
 
 **Time Complexity**
 
@@ -179,7 +184,9 @@ An abstract data type that is meant to implement the directed graph concept from
 
 
 ### Trie Tree
-A Trie Tree is a tree data structure that is used to store an associative array
+A kind of search tree—an ordered tree data structure that is used to 
+store a dynamic set or associative array where the keys are usually strings.
+[[9]](https://en.wikipedia.org/wiki/Trie)
 
 **Time Complexity**
 
@@ -192,7 +199,8 @@ A Trie Tree is a tree data structure that is used to store an associative array
 
 
 ### Hash Table
-A Hash Table is is a data structure which implements an associative array abstract data type, a structure that can map keys to values. 
+A Hash Table is is a data structure which implements an associative array abstract data type, 
+a structure that can map keys to values. 
 
 **Time Complexity**
 
