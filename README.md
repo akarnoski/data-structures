@@ -14,16 +14,27 @@ and [Cody Dibble](https://github.com/hcodydibble).
 
 ## Getting Started
 
+**Check out the code**
+[Click Here!](https://github.com/adriennekarnoski/data-structures/tree/master/src)
+
 **Installation:**
-- Clone the repository:
-- `$ git clone https://github.com/adriennekarnoski/data-structures`
-- Move into the **data-structures** directory:
-- `$ cd data-structures`
-- Start your virtual environment:
-- `$ python3 -m venv ENV`
-- `$ source bin/ENV/activate`
-- Install package
-- `$ (ENV) pip install -e .`
+Clone the repository:
+
+`$ git clone https://github.com/adriennekarnoski/data-structures`
+
+Move into the **data-structures** directory:
+
+`$ cd data-structures`
+
+Start your virtual environment:
+
+`$ python3 -m venv ENV`
+
+`$ source bin/ENV/activate`
+
+Install package
+
+`$ (ENV) pip install -e .`
 
 
 ## Data Structures
@@ -44,6 +55,7 @@ Linear data structure where each element is a separate object.
 |`.remove()` | O(N) |
 |`.display()` | O(N) |
 
+***
 
 ### Doubly Linked List
 Type of Linked list, there are two references associated with each node, 
@@ -61,6 +73,7 @@ One of the reference points to the next node and one to the previous node.
 |`.display()` | O(N) |
 |`.size()` | O(1) |
 
+***
 
 ### Stack (last in, first out)
 Abstract data type that serves as a collection of elements, with two principal operations: 
@@ -77,6 +90,7 @@ of push and pop takes place at the same end that is top of the stack.
 |`.pop()` | O(1) |
 |`.len()` | O(1) |
 
+***
 
 ### Queue (first in, first out) 
 Abstract data type that serves as a collection of elements, 
@@ -94,6 +108,7 @@ first element that was added.
 |`.peek()` | O(1) |
 |`.size()` | O(1) |
 
+***
 
 ### Deque (Double-Ended Queue)
 Abstract data type that generalizes a queue, 
@@ -112,6 +127,7 @@ for which elements can be added to or removed from either the front or back.
 |`.peekleft()` | Front | O(1) |
 |`.size()` | N/A | O(1) |
 
+***
 
 ### Priority Queue
 Abstract data type which is like a regular queue or stack data structure, 
@@ -129,6 +145,7 @@ they are served according to their order in the queue.
 |`.pop()` | O(1) |
 |`.peek()` | O(1) |
 
+***
 
 ### Binary Heap
 A tree-type data structure with two main properties:
@@ -146,6 +163,7 @@ A tree-type data structure with two main properties:
 |`.push()` | O(N) |
 |`.pop()` | O(N) |
 
+***
 
 ### Binary Search Tree
 Tree data structure in which each node has at most two children, 
@@ -163,6 +181,7 @@ which are referred to as the left child and the right child.
 |`.contains()` | log N |
 |`.balance` | O(1) |
 
+***
 
 ### Graph
 An abstract data type that is meant to implement the directed graph concept from mathematics, 
@@ -182,6 +201,7 @@ specifically the field of graph theory.
 |`.neighbors()` | O(1) |
 |`.adjacent()` | O(N) |
 
+***
 
 ### Trie Tree
 A kind of search tree—an ordered tree data structure that is used to 
@@ -197,6 +217,7 @@ store a dynamic set or associative array where the keys are usually strings.
 |`.size()` | O(1) |
 |`.remove()` | O(1) |
 
+***
 
 ### Hash Table
 A Hash Table is is a data structure which implements an associative array abstract data type, 
