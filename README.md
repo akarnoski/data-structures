@@ -44,10 +44,10 @@ Install package
 View all the code or read the documentation
 
 **Data Structures:**
-[ CODE ](https://github.com/adriennekarnoski/data-structures/tree/master/data_structures)
-[ DOCS ](https://github.com/adriennekarnoski/data-structures/blob/master/data_structures/README.md)
+[ [CODE] ](https://github.com/adriennekarnoski/data-structures/tree/master/data_structures)
+[ [DOCS] ](https://github.com/adriennekarnoski/data-structures/blob/master/data_structures/README.md)
 
 
 **Sorting Algorithms:**
-[ CODE ](https://github.com/adriennekarnoski/data-structures/tree/master/sorting_algorithms)
-[ DOCS ](https://github.com/adriennekarnoski/data-structures/blob/master/sorting_algorithms/README.md)
+[ [CODE] ](https://github.com/adriennekarnoski/data-structures/tree/master/sorting_algorithms)
+[ [DOCS] ](https://github.com/adriennekarnoski/data-structures/blob/master/sorting_algorithms/README.md)
