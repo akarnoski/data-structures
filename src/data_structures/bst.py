@@ -12,7 +12,6 @@ class Node(object):
         self.left = None
         self.right = None
         self.parent = None
-        self.color = None
         self.depth = 0
 
 
