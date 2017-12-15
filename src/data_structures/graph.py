@@ -35,14 +35,14 @@ class Graph(object):
 
     def del_node(self, val):
         """Delete the node containing the given value."""
-        try:
-            if val in self._nodes:
-                del self._nodes[val]
-            for key in self._nodes:
-                if val in list(self._nodes[key]):
-                    self._nodes[key].pop(val)
-        except KeyError:
+        # try:
+        if self.has_node(val):
+            del self._nodes[val]
+        else: 
             raise KeyError("No such Node exists")
+        for key in self._nodes:
+            if val in list(self._nodes[key]):
+                self._nodes[key].pop(val)
 
     def del_edge(self, val1, val2):
         """Delete the edge connecting the two values."""
@@ -101,7 +101,6 @@ class Graph(object):
                 break
         return path
 
-
     def dijkstra(self, start, target):
         """Gonna try and make this during code review."""
         visited = []
@@ -112,5 +111,5 @@ class Graph(object):
         current_node = start
 
         while current_node != target:
-            neighbors = self.neighbors:
-                dist_curr_to_neigh = self.graph[current_node][neighbor]
+            neighbors = self.neighbors
+            dist_curr_to_neigh = self.graph[current_node][neighbor]

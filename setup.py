@@ -2,8 +2,10 @@ from setuptools import setup
 
 setup(
     name="data-structures",
+    version='0.0',
     description="Data structures.",
-    authors="Adrienne Karnoski & Cody Dibble",
+    author="Adrienne Karnoski & Cody Dibble",
+    author_email="adrienne.j.karnoski@gmail.com",
     py_modules=[
         'binheadp',
         'bst',

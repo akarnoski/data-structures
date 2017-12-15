@@ -1,117 +1,53 @@
-# data-structures
-Code 401: Python Data Structures
+[![Build Status](https://travis-ci.org/adriennekarnoski/data-structures.svg?branch=master)](https://travis-ci.org/adriennekarnoski/data-structures)
+[![Coverage Status](https://coveralls.io/repos/github/adriennekarnoski/data-structures/badge.svg?branch=master)](https://coveralls.io/github/adriennekarnoski/data-structures?branch=master)
 
-## Linked List
-Consists of Nodes, each of which contains some data and a pointer to the next node.
-### Time Complexity
-* push() - O(1)
-* pop() - O(1)
-* size() - O(1)
-* search() - O(N)
-* remove() - O(N)
-* display() - O(N)
+# Data Structures & Algorithms
 
+**Introduction**
 
-## Stack
-Data structure where elements are inserted into and removed from the head of the container.
-### Time Complexity
-* push() - O(1)
-* pop() - O(1)
-* len() - O(1)
+The following data structures and algorithms are solved using Python by [myself](https://github.com/adriennekarnoski) 
+and [Cody Dibble](https://github.com/hcodydibble).
 
+## Getting Started
 
-## Doubly Linked List
-Consists of Nodes, each of which contains some data and pointers to the next and previous nodes.
-### Time Complexity
-* push() - O(1)
-* append() - O(1)
-* pop() - O(1)
-* shift() - O(1)
-* display() - O(N)
-* size() - O(1)
+This repository has two directories inside, **data_structures** and **sorting_algorithms**.
+Both directories include a README file that describe each structure or
+algorithm inside that directory. The **data_structures** directory have test files
+for each structure, whereas the **sorting_algorithms** directory has a single
+test file that covers all algorithms.
 
+You can install this package, where you will be able to run, test, and improve the code
+or view everything right here on GitHub.
 
+## Installation
 
-## Queue
-Data structure that inserts elements at the tail and accesses/removes elements at the head.
-### Time Complexity
-* enqueue() - O(1)
-* dequeue() - O(1)
-* peek() - O(1)
-* size() - O(1)
+Clone the repository:
 
+`$ git clone https://github.com/adriennekarnoski/data-structures`
+
+Move into the **data-structures** directory:
+
+`$ cd data-structures`
+
+Start your virtual environment:
+
+`$ python3 -m venv ENV`
+
+`$ source bin/ENV/activate`
+
+Install package
+
+`$ (ENV) pip install -e .`
 
 
-## Deque
-A Queue data structure that works at both ends.
-Data can be inserted at the head or tail, and retrieved from the head or the tail.
-### Time Complexity
-* append() - O(1)
-* appendleft() - O(1)
-* pop() - O(1)
-* popleft() - O(1)
-* peek() - O(1)
-* peekleft() - O(1)
-* size() - O(1)
+## Check out the Code
+View all the code or read the documentation
+
+**Data Structures:**
+[ CODE ](https://github.com/adriennekarnoski/data-structures/tree/master/data_structures)
+[ DOCS ](https://github.com/adriennekarnoski/data-structures/blob/master/data_structures/README.md)
 
 
-## Binary Heap
-A tree-type data structure with two main properties:
-- Shape property: The tree is mostly complete with only the deepest level left unfilled
-- Heap property: The heap property has two modes dictating relationships between parent and child nodes
-    Max Heap: Each node is greater than or equal to its child nodes
-    Min Heap: Each node is less than or equal to its child nodes
-
-### Time Complexity
-* push() - O(N)
-* pop() - O(N)
-
-
-## Priority Queue
-Addition to a value, each item in the queue has a “priority”.
-When an item is popped off of the queue, it returns the highest priority item
-### Time Complexity
-* insert() - O(1)
-* pop() - O(1)
-* peek() - O(1)
-
-## Graph
-An abstract data type that is meant to implement the directed graph concept from mathematics, specifically the field of graph theory.
-### Time Complexity
-* nodes() - O(N)
-* edges() - O(1)
-* add_node() - O(1)
-* add_edge() - O(1)
-* del_node() - O(N)
-* del_edge() - O(N)
-* has_node() - O(1)
-* neighbors() - O(1)
-* adjacent() - O(N)
-
-
-## Binary Search Tree
-A binary search tree is a data structure that allows for fast lookup, addition, and removal of items
-### Time Complexity
-* insert() - log n
-* search() - log n
-* depth() - O(1)
-* size() - O(1)
-* contains() - log n
-* balance() - O(1)
-
-
-## Trie Tree
-A Trie Tree is a tree data structure that is used to store an associative array### Time Complexity
-* insert() - log n
-* contains() - log n
-* size() - O(1)
-* remove() *in production*
-
-
-## Hash Table
-A Hash Table is is a data structure which implements an associative array abstract data type, a structure that can map keys to values. 
-### Time Complexity
-* get() - log n
-* set() - O(1)
-* hash() - O(1)
-
+**Sorting Algorithms:**
+[ CODE ](https://github.com/adriennekarnoski/data-structures/tree/master/sorting_algorithms)
+[ DOCS ](https://github.com/adriennekarnoski/data-structures/blob/master/sorting_algorithms/README.md)
