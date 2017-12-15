@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/adriennekarnoski/data-structures.svg?branch=master)](https://travis-ci.org/adriennekarnoski/data-structures)
+[![Coverage Status](https://coveralls.io/repos/github/adriennekarnoski/data-structures/badge.svg?branch=master)](https://coveralls.io/github/adriennekarnoski/data-structures?branch=master)
+
 # Data Structures & Algorithms
 
 **Introduction**
