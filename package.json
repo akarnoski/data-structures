@@ -1,0 +1,22 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "Data structures written in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriennekarnoski/data-structures.git"
+  },
+  "keywords": [
+    "data-structures"
+  ],
+  "author": "Adrienne Karnoski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adriennekarnoski/data-structures/issues"
+  },
+  "homepage": "https://github.com/adriennekarnoski/data-structures#readme"
+}

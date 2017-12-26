@@ -87,6 +87,12 @@ def test_neighbors_returns_all_connected_nodes(graph_fixture):
     assert len(graph_fixture.neighbors(1)) == 2
 
 
+def test_neightbors_raise_error_for_no_node(graph_fixture):
+    """Test and error is raised if node is not in graph."""
+    with pytest.raises(KeyError):
+        graph_fixture.neighbors(3)
+
+
 def test_nodes_returns_list_of_nodes(graph_fixture):
     """Test that nodes will return a list of all the created Nodes."""
     for i in range(4):
