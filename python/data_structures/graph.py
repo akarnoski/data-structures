@@ -15,7 +15,11 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return list(self._nodes)
+        edge_list = []
+        for node, value in self._nodes.items():
+            for edge, weight, in value.items():
+                edge_list.append([node, edge])
+        return [y for x in edge_list for y in x]
 
     def add_node(self, *args):
         """Add a new node to the Graph."""

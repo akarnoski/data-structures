@@ -119,7 +119,7 @@ def test_edges_returns_all_edges(graph_fixture):
     graph_fixture.add_edge(1, 2, 3)
     graph_fixture.add_edge(2, 3, 3)
     graph_fixture.add_edge(3, 7, 3)
-    assert graph_fixture.edges() == [1, 2, 3, 7]
+    assert graph_fixture.edges() == [1, 2, 2, 3, 3, 7]
 
 
 def test_del_node_removes_all_memory_of_node(graph_fixture):
@@ -128,7 +128,7 @@ def test_del_node_removes_all_memory_of_node(graph_fixture):
     graph_fixture.add_edge(2, 1, 3)
     graph_fixture.del_node(1)
     assert graph_fixture.nodes() == [2]
-    assert graph_fixture.edges() == [2]
+    assert graph_fixture.edges() == []
 
 
 def test_del_edge_works(graph_fixture):
@@ -136,7 +136,7 @@ def test_del_edge_works(graph_fixture):
     graph_fixture.add_edge(1, 2, 3)
     graph_fixture.add_edge(1, 3, 3)
     graph_fixture.del_edge(1, 2)
-    assert graph_fixture.edges() == [1, 2, 3]
+    assert graph_fixture.edges() == [1, 3]
 
 
 def test_del_edge_raises_key_error(graph_fixture):
