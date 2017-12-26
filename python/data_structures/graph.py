@@ -61,11 +61,17 @@ class Graph(object):
 
     def neighbors(self, val):
         """Return list of all nodes connected to node containing the value."""
-        return list(self._nodes[val].keys())
+        if self.has_node(val):
+            return list(self._nodes[val].keys())
+        else:
+            raise KeyError("No such Node exists")
 
     def adjacent(self, val1, val2):
         """Return True if there is an edge connecting the two values."""
-        return val2 in self._nodes[val1]
+        if self.has_node(val1) and self.has_node(val2):
+            return val2 in self._nodes[val1]
+        else:
+            raise KeyError("Node does not exists")
 
     def depth_first_traversal(self, start):
         """Perform a depth-first traversal and return full visited path."""
