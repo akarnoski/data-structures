@@ -58,6 +58,7 @@ def test_del_node_raises_key_error_on_a_list(graph_fixture):
 def test_adjacent_returns_false(graph_fixture):
     """Return false if value of second Node is not connected to first Node."""
     graph_fixture.add_edge(1, 2, 3)
+    graph_fixture.add_edge(4, 3, 2)
     assert graph_fixture.adjacent(1, 3) is False
 
 
@@ -65,6 +66,19 @@ def test_adjacent_returns_true(graph_fixture):
     """Return true if value of second Node is connected to first Node."""
     graph_fixture.add_edge(1, 2, 3)
     assert graph_fixture.adjacent(1, 2) is True
+
+
+def test_adjacent_returns_key_error_one_value(graph_fixture):
+    """Raise key error if one value is not in the graph."""
+    graph_fixture.add_edge(1, 2, 3)
+    with pytest.raises(KeyError):
+        graph_fixture.adjacent(1, 3)
+
+
+def test_adjacent_returns_key_error_both_values(graph_fixture):
+    """Raise key error if both values are not in the graph."""
+    with pytest.raises(KeyError):
+        graph_fixture.adjacent(1, 3)
 
 
 def test_del_edge_raises_error(graph_fixture):
@@ -105,7 +119,7 @@ def test_edges_returns_all_edges(graph_fixture):
     graph_fixture.add_edge(1, 2, 3)
     graph_fixture.add_edge(2, 3, 3)
     graph_fixture.add_edge(3, 7, 3)
-    assert graph_fixture.edges() == {1: {2: 3}, 2: {3: 3}, 3: {7: 3}, 7: {}}
+    assert graph_fixture.edges() == [1, 2, 3, 7]
 
 
 def test_del_node_removes_all_memory_of_node(graph_fixture):
@@ -114,7 +128,7 @@ def test_del_node_removes_all_memory_of_node(graph_fixture):
     graph_fixture.add_edge(2, 1, 3)
     graph_fixture.del_node(1)
     assert graph_fixture.nodes() == [2]
-    assert graph_fixture.edges() == {2: {}}
+    assert graph_fixture.edges() == [2]
 
 
 def test_del_edge_works(graph_fixture):
@@ -122,7 +136,7 @@ def test_del_edge_works(graph_fixture):
     graph_fixture.add_edge(1, 2, 3)
     graph_fixture.add_edge(1, 3, 3)
     graph_fixture.del_edge(1, 2)
-    assert graph_fixture.edges() == {1: {3: 3}, 2: {}, 3: {}}
+    assert graph_fixture.edges() == [1, 2, 3]
 
 
 def test_del_edge_raises_key_error(graph_fixture):
@@ -210,4 +224,3 @@ def test_empty_graph_depth_first_traversal_raises_error(graph_fixture):
     """Test exception raises on empty graph."""
     with pytest.raises(KeyError):
         graph_fixture.breadth_first_traversal("M")
-

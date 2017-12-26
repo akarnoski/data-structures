@@ -15,7 +15,7 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return self._nodes
+        return list(self._nodes)
 
     def add_node(self, *args):
         """Add a new node to the Graph."""
@@ -28,17 +28,16 @@ class Graph(object):
         If either value doesn't exist they will be created.
         """
         self.add_node(val1, val2)
-        if val2 in self._nodes[val1]:  # pragma: no cover
+        if val2 in self._nodes[val1]:
             pass
         else:
             self._nodes[val1].update({val2: weight})
 
     def del_node(self, val):
         """Delete the node containing the given value."""
-        # try:
         if self.has_node(val):
             del self._nodes[val]
-        else: 
+        else:
             raise KeyError("No such Node exists")
         for key in self._nodes:
             if val in list(self._nodes[key]):
@@ -69,9 +68,13 @@ class Graph(object):
     def adjacent(self, val1, val2):
         """Return True if there is an edge connecting the two values."""
         if self.has_node(val1) and self.has_node(val2):
-            return val2 in self._nodes[val1]
+            try:
+                if self._nodes[val1][val2]:
+                    return True
+            except KeyError:
+                return False
         else:
-            raise KeyError("Node does not exists")
+            raise KeyError('Both nodes are not present in graph')
 
     def depth_first_traversal(self, start):
         """Perform a depth-first traversal and return full visited path."""
