@@ -14,6 +14,13 @@ def test_add_node_adds_to_nodes_list(graph_fixture):
     assert graph_fixture._nodes[1] == {}
 
 
+def test_adding_same_edge_overwrites_old_edge(graph_fixture):
+    """Test that new edge overwrites edge if it already exists."""
+    graph_fixture.add_edge(1, 2, 3)
+    graph_fixture.add_edge(1, 2, 5)
+    assert len(graph_fixture._nodes) == 2
+
+
 def test_del_node_removes_node_with_given_value(graph_fixture):
     """Test that removing the node with the given value works."""
     for i in range(5):
@@ -38,9 +45,9 @@ def test_has_node_returns_false_if_node_not_in_graph(graph_fixture):
 
 
 def test_del_node_raises_key_error_on_empty_graph(graph_fixture):
-        """Test del_node raises KeyError if no Nodes in Graph."""
-        with pytest.raises(KeyError):
-            graph_fixture.del_node(2)
+    """Test del_node raises KeyError if no Nodes in Graph."""
+    with pytest.raises(KeyError):
+        graph_fixture.del_node(2)
 
 
 def test_del_node_raises_key_error_on_a_list(graph_fixture):
