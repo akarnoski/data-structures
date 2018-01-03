@@ -68,7 +68,7 @@ class DoublyLinkedList {
         }
         let message = {failure: 'Failure: No nodes available to pop.'}
         if(!this.tail) {
-            throw new Error(message.failure);
+            throw new Error('Failure: No nodes available to pop.');
         }
         let returnData = this.tail.data;
         if(this.tail) {

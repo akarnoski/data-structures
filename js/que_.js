@@ -1,23 +1,27 @@
+let DoublyLinkedList = require('./dll')
+
 class Queue {
     constructor() {
-        this.queue = []
+        this.dll = new DoublyLinkedList();
     }
 
     enqueue(val) {
-        this.queue.push(val)
-        this.counter += 1
+        this.dll.push(val)
     }
 
     dequeue(val) {
-        return this.queue.shift();
+        return this.dll.shift();
     }
 
     peek() {
-        return this.queue[0];
+        if(this.dll.size === 0) {
+            return undefined
+        }
+        return this.dll.tail.data;
     }
 
     size() {
-        return this.queue.length
+        return this.dll.size
     }
 }
 
