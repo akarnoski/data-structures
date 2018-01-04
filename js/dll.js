@@ -38,6 +38,7 @@ class DoublyLinkedList {
             this.head = newTail;
             this.tail = newTail;
         }
+        this.size += 1;
     }
 
     pop() {
