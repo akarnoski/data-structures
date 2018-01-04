@@ -29,6 +29,7 @@ test('Peek returns next value to be dequeued', () => {
 test('Remove value after enqueue', () => {
     let q = new Queue()
     q.enqueue(3)
+    q.enqueue(5)
     var removed = q.dequeue()
     expect(removed).toBe(3);
 });
@@ -39,12 +40,6 @@ test('Remove first value enqued', () => {
     q.enqueue(5)
     var removed = q.dequeue()
     expect(removed).toBe(3);
-});
-
-test('Return undefined if no values in queue', () => {
-    let q = new Queue()
-    var removed = q.dequeue()
-    expect(removed).toBe(undefined);
 });
 
 test('Value is removed and new size is reflected', () => {
