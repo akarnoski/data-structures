@@ -53,6 +53,52 @@ class BinarySearchTree {
         }
     }
 
+    search(data) {
+        try {
+            let curr = this.root;
+            while(curr) {
+                if(curr.data === data) {
+                    return curr;
+                }
+                if(curr.data < data) {
+                    if(curr.right === null) {
+                        return;
+                    }
+                    curr = curr.right;
+                }
+                if(curr.data > data) {
+                    if(curr.left === null) {
+                        return;
+                    }
+                    curr = curr.left;
+                }
+            }
+        } catch(e) {
+            return 'No nodes to search'
+        }
+    }
+
+    depth() {
+        return this.stats['treeDepth'];
+    }
+
+    size() {
+        return this.stats['counter'];
+    }
+
+    contains(data) {
+        if(this.search(data) !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    balance() {
+        return this.stats['leftDepth'] - this.stats['rightDepth'];
+    }
+
+    
     adjustStats(node) {
         this.stats['counter'] += 1;
         let currentDepth = this.stats['treeDepth'];
