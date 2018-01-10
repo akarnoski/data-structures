@@ -25,16 +25,6 @@ or view everything right here on GitHub.
 
 ### Python
 
-```
-#Clone the repository
-
-$ git clone https://github.com/adriennekarnoski/data-structures
-
-#Move into the **python** directory
-
-$ cd python
-```
-
 Clone the repository:
 
 `$ git clone https://github.com/adriennekarnoski/data-structures`
@@ -44,21 +34,20 @@ Move into the **python** directory:
 `$ cd python`
 
 Start your virtual environment:
-
-`$ python3 -m venv ENV`
-
-`$ source bin/ENV/activate`
+```
+$ python3 -m venv ENV
+$ source bin/ENV/activate
+```
 
 Install package
 
 `$ (ENV) pip install -e .`
 
 **testing**
-
-`$ (ENV) pip install -e .[test]`
-
-`$ (ENV) tox`
-
+```
+$ (ENV) pip install -e .[test]
+$ (ENV) tox
+```
 ***
 
 ### Javascript
