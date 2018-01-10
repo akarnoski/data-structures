@@ -3,22 +3,9 @@
 
 # Data Structures & Algorithms
 
-**File Structure**
-
-![file structure](file_structure.png)
-* data-structures/
-    * REAME
-    * python/
-        * data_structures/
-            * PYTHON_DS_README
-        * sorting_algorithms
-            * PYTHON_SA_README
-    * js/
-        * JS_README
+This repository has two directories inside, **python** and **js**.
 
 ## Getting Started
-
-This repository has two directories inside, **python** and **js**.
 
 Within the Python directory, the **data_structures** sub-directory has test files
 for each structure, whereas the **sorting_algorithms** sub-directory has a single
@@ -29,10 +16,24 @@ The Javascript directory has data structures, tests, and a README describing the
 You can install this package, where you will be able to run, test, and improve the code
 or view everything right here on GitHub.
 
+
+**File Structure**
+
+![file structure](file_structure.png)
+
 ## Installation
 
 ### Python
 
+```
+#Clone the repository
+
+$ git clone https://github.com/adriennekarnoski/data-structures
+
+#Move into the **python** directory
+
+$ cd python
+```
 
 Clone the repository:
 
@@ -57,6 +58,8 @@ Install package
 `$ (ENV) pip install -e .[test]`
 
 `$ (ENV) tox`
+
+***
 
 ### Javascript
 
