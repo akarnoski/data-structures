@@ -155,23 +155,6 @@ def test_del_edge_raises_key_error(graph_fixture):
         graph_fixture.del_edge(1, 2)
 
 
-def test_depth_first_traversal(graph_fixture):
-    """Test the functionality of the depth first traversal."""
-    DEPTH_LIST = [
-        ("A", "B", 3),
-        ("A", "C", 3),
-        ("B", "D", 3),
-        ("B", "E", 3),
-        ("C", "G", 3),
-        ("C", "F", 3),
-    ]
-    for test in DEPTH_LIST:
-        graph_fixture.add_edge(test[0], test[1], test[2])
-    check_graph = graph_fixture.depth_first_traversal("A")
-    returned_list = ['A', 'C', 'F', 'G', 'B', 'E', 'D']
-    assert check_graph == returned_list
-
-
 def test_depth_first_traversal_raises_error(graph_fixture):
     """Test exceptions is raised on traversal of vertex not in graph."""
     DEPTH_LIST = [
@@ -192,23 +175,6 @@ def test_empty_graph_depth_first_traversal_raises_error(graph_fixture):
     """Test exceptions raised on empty graph."""
     with pytest.raises(KeyError):
         graph_fixture.depth_first_traversal("M")
-
-
-def test_breadth_first_traversal(graph_fixture):
-    """Test the functionality of the breadth first traversal."""
-    DEPTH_LIST = [
-        ("A", "B", 3),
-        ("A", "C", 3),
-        ("B", "D", 3),
-        ("B", "E", 3),
-        ("C", "G", 3),
-        ("C", "F", 3),
-    ]
-    for test in DEPTH_LIST:
-        graph_fixture.add_edge(test[0], test[1], test[2])
-    check_graph = graph_fixture.breadth_first_traversal("A")
-    returned_list = ['A', 'B', 'C', 'D', 'E', 'G', 'F']
-    assert check_graph == returned_list
 
 
 def test_breadth_first_traversal_raises_error(graph_fixture):
