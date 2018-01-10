@@ -15,7 +15,11 @@ class Graph(object):
 
     def edges(self):
         """List all edges in the Graph."""
-        return self._nodes
+        edge_list = []
+        for node, value in self._nodes.items():
+            for edge, weight, in value.items():
+                edge_list.append([node, edge])
+        return [y for x in edge_list for y in x]
 
     def add_node(self, *args):
         """Add a new node to the Graph."""
@@ -28,17 +32,16 @@ class Graph(object):
         If either value doesn't exist they will be created.
         """
         self.add_node(val1, val2)
-        if val2 in self._nodes[val1]:  # pragma: no cover
+        if val2 in self._nodes[val1]:
             pass
         else:
             self._nodes[val1].update({val2: weight})
 
     def del_node(self, val):
         """Delete the node containing the given value."""
-        # try:
         if self.has_node(val):
             del self._nodes[val]
-        else: 
+        else:
             raise KeyError("No such Node exists")
         for key in self._nodes:
             if val in list(self._nodes[key]):
@@ -61,55 +64,20 @@ class Graph(object):
 
     def neighbors(self, val):
         """Return list of all nodes connected to node containing the value."""
-        return list(self._nodes[val].keys())
+        if self.has_node(val):
+            return list(self._nodes[val].keys())
+        else:
+            raise KeyError("No such Node exists")
 
     def adjacent(self, val1, val2):
         """Return True if there is an edge connecting the two values."""
-        return val2 in self._nodes[val1]
-
-    def depth_first_traversal(self, start):
-        """Perform a depth-first traversal and return full visited path."""
-        if start not in self._nodes:
-            raise KeyError("No such value")
-        path = []
-        visit = Stack()
-        curr = start
-        while True:
+        if self.has_node(val1) and self.has_node(val2):
             try:
-                neighbors = self.neighbors(curr)
-                for n in neighbors:
-                    visit.push(n)
-                path.append(curr)
-                curr = visit.pop()
-            except IndexError:
-                break
-        return path
+                if self._nodes[val1][val2]:
+                    return True
+            except KeyError:
+                return False
+        else:
+            raise KeyError('Both nodes are not present in graph')
 
-    def breadth_first_traversal(self, start):
-        """Perform a breadth-first traversal and return full visited path."""
-        if start not in self._nodes:
-            raise KeyError("No such value")
-        path, visit = [], []
-        curr = start
-        while True:
-            try:
-                path.append(curr)
-                visit.extend(self.neighbors(curr))
-                curr = visit[0]
-                visit = visit[1:]
-            except IndexError:
-                break
-        return path
-
-    def dijkstra(self, start, target):
-        """Gonna try and make this during code review."""
-        visited = []
-        dist = {}
-        for node in self.nodes():
-            dist[node] = float("inf")
-        dist[start] = 0
-        current_node = start
-
-        while current_node != target:
-            neighbors = self.neighbors
-            dist_curr_to_neigh = self.graph[current_node][neighbor]
+   

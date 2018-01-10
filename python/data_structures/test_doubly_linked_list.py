@@ -109,10 +109,3 @@ def test_shift_will_not_break_if_pop_and_shift_are_used_on_same_list(dll_fixture
     dll_fixture.shift()
     with pytest.raises(IndexError):
         dll_fixture.shift()
-
-
-def test_display_returns_string_correctly(dll_fixture):
-    """Test that display function returns a string structured as a tuple."""
-    for i in range(4):
-        dll_fixture.push(i)
-    assert dll_fixture.display() == "(3, 2, 1, 0)"
