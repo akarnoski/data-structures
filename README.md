@@ -5,6 +5,7 @@
 
 **File Structure**
 
+![file structure](file_structure.png)
 * data-structures/
     * REAME
     * python/
