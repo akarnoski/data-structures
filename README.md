@@ -3,31 +3,43 @@
 
 # Data Structures & Algorithms
 
-**Introduction**
+**File Structure**
 
-The following data structures and algorithms are solved using Python by [myself](https://github.com/adriennekarnoski) 
-and [Cody Dibble](https://github.com/hcodydibble).
+* data-structures/
+    * REAME
+    * python/
+        * data_structures/
+            * PYTHON_DS_README
+        * sorting_algorithms
+            * PYTHON_SA_README
+    * js/
+        * JS_README
 
 ## Getting Started
 
-This repository has two directories inside, **data_structures** and **sorting_algorithms**.
-Both directories include a README file that describe each structure or
-algorithm inside that directory. The **data_structures** directory have test files
-for each structure, whereas the **sorting_algorithms** directory has a single
+This repository has two directories inside, **python** and **js**.
+
+Within the Python directory, the **data_structures** sub-directory has test files
+for each structure, whereas the **sorting_algorithms** sub-directory has a single
 test file that covers all algorithms.
+
+The Javascript directory has data structures, tests, and a README describing the Big-O Notation.
 
 You can install this package, where you will be able to run, test, and improve the code
 or view everything right here on GitHub.
 
 ## Installation
 
+### Python
+
+
 Clone the repository:
 
 `$ git clone https://github.com/adriennekarnoski/data-structures`
 
-Move into the **data-structures** directory:
+Move into the **python** directory:
 
-`$ cd data-structures`
+`$ cd python`
 
 Start your virtual environment:
 
@@ -39,9 +51,34 @@ Install package
 
 `$ (ENV) pip install -e .`
 
+**testing**
+
+`$ (ENV) pip install -e .[test]`
+
+`$ (ENV) tox`
+
+### Javascript
+
+Clone the repository:
+
+`$ git clone https://github.com/adriennekarnoski/data-structures`
+
+Move into the **js** directory:
+
+`$ cd js`
+
+Install package
+
+`npm install data-structures`
+
+**testing**
+
+`$ npm test`
 
 ## Check out the Code
 View all the code or read the documentation
+
+### Python
 
 **Data Structures:**
 [ [CODE] ](https://github.com/adriennekarnoski/data-structures/tree/master/data_structures)
@@ -51,3 +88,9 @@ View all the code or read the documentation
 **Sorting Algorithms:**
 [ [CODE] ](https://github.com/adriennekarnoski/data-structures/tree/master/sorting_algorithms)
 [ [DOCS] ](https://github.com/adriennekarnoski/data-structures/blob/master/sorting_algorithms/README.md)
+
+
+### Javascript
+**Data Structures:**
+[ [CODE] ](https://github.com/adriennekarnoski/data-structures/tree/master/data_structures)
+[ [DOCS] ](https://github.com/adriennekarnoski/data-structures/blob/master/data_structures/README.md)
