@@ -147,3 +147,11 @@ def test_balance_returns_zero_if_tree_is_empty(bst_fixture):
     """Test balance is positive when depth is greater on right left."""
     assert bst_fixture.balance() == 0
 
+def test_get_node_method(bst_fixture):
+    """Test get node returns node it searches for."""
+    bst_fixture.insert(15)
+    bst_fixture.insert(3)
+    bst_fixture.insert(7)
+    bst_fixture.insert(23)
+    bst_fixture.insert(13)
+    assert bst_fixture.get_node(3).val == 3
